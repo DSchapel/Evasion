@@ -9,6 +9,8 @@ public class Switchable : MonoBehaviour {
     }
     public Side side;
 
+    public bool castsShadow;
+
     private SpriteRenderer sprite;
 
     private GameObject shadow;
@@ -48,25 +50,31 @@ public class Switchable : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
         float targetZ = 0.0f;
         if (side == Side.Background) {
             targetZ += 1.0f;
         }
-        
+
         // TODO: this algorithm is framerate dependant, which
         // sucks really bad
         // (i think this is a pretty easy fix but i don't wanna deal
         //  with it right now)
         transform.position += new Vector3(0, 0, (targetZ - transform.position.z) / 4);
 
-        shadow.transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y,
-            1.0f
-        );
+        if (castsShadow) {
 
-        shadowSprite.sprite = sprite.sprite;
-        shadowSprite.color = sprite.color * new Color(0.8f, 1.0f, 0.9f, 0.1f);
+            shadow.transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                1.0f
+            );
+
+            shadowSprite.sprite = sprite.sprite;
+            shadowSprite.color = sprite.color * new Color(0.8f, 1.0f, 0.9f, 0.1f);
+
+            shadowSprite.enabled = true;
+        } else {
+            shadowSprite.enabled = false;
+        }
     }
 }
