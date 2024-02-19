@@ -11,6 +11,10 @@ public class Switchable : MonoBehaviour {
 
     public bool castsShadow;
 
+    // TODO: is there a way to have all instances
+    // of this script just *know* the shadow material?
+    public Material shadowMaterial;
+
     private SpriteRenderer sprite;
 
     private GameObject shadow;
@@ -45,7 +49,7 @@ public class Switchable : MonoBehaviour {
         shadow.transform.SetParent(transform);
 
         shadowSprite = shadow.AddComponent<SpriteRenderer>();
-        
+        shadowSprite.material = shadowMaterial;
     }
 
     // Update is called once per frame
@@ -62,7 +66,6 @@ public class Switchable : MonoBehaviour {
         transform.position += new Vector3(0, 0, (targetZ - transform.position.z) / 4);
 
         if (castsShadow) {
-
             shadow.transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
@@ -70,8 +73,6 @@ public class Switchable : MonoBehaviour {
             );
 
             shadowSprite.sprite = sprite.sprite;
-            shadowSprite.color = sprite.color * new Color(0.8f, 1.0f, 0.9f, 0.1f);
-
             shadowSprite.enabled = true;
         } else {
             shadowSprite.enabled = false;

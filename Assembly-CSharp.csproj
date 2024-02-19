@@ -66,6 +66,9 @@
     <Compile Include="Assets/Switchable.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/ShadowShader.shader" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>/home/notebook/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
       <Private>False</Private>
