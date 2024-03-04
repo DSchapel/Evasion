@@ -22,7 +22,7 @@ public class Switchable : MonoBehaviour {
 
     // TODO: i think this is genuinely the *worst* possible
     // implementation of this, but idk how else to do it
-    public GameObject tracking;
+    private GameObject tracking;
     private Switchable trackingSwitchable;
 
     private SpriteRenderer shadowSprite;
@@ -30,6 +30,8 @@ public class Switchable : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         sprite = GetComponent<SpriteRenderer>();
+
+        tracking = GameObject.FindGameObjectWithTag("Player");
         trackingSwitchable = tracking.GetComponent<Switchable>();
 
         if (side == trackingSwitchable.side) {
