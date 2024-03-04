@@ -29,6 +29,7 @@ public class Switchable : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        sprite = GetComponent<SpriteRenderer>();
         trackingSwitchable = tracking.GetComponent<Switchable>();
 
         if (side == trackingSwitchable.side) {
@@ -46,8 +47,6 @@ public class Switchable : MonoBehaviour {
                 1.0f
             );
         }
-
-        sprite = GetComponent<SpriteRenderer>();
 
         shadow = new GameObject("Shadow");
         
@@ -73,6 +72,10 @@ public class Switchable : MonoBehaviour {
         // sucks really bad
         // (i think this is a pretty easy fix but i don't wanna deal
         //  with it right now)
+
+        // BONUS TODO: the player controller is using a rigidbody,
+        // so it completely ignores this offset :(
+        // (i do not know how to fix this lol)
         transform.position += new Vector3(0, 0, (targetZ - transform.position.z) / 4);
         sprite.color = Color.Lerp(sprite.color, targetColor, 0.25f);
 
