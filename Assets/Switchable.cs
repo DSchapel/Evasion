@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Switchable : MonoBehaviour {
+    private static Color BG_COLOR = new(0.75f, 0.9f, 1.0f, 0.5f);
+
     public enum Side {
         Foreground,
         Background
     }
+
     public Side side;
 
     public bool castsShadow;
@@ -18,25 +19,32 @@ public class Switchable : MonoBehaviour {
     private SpriteRenderer sprite;
 
     private GameObject shadow;
+
+    // TODO: i think this is genuinely the *worst* possible
+    // implementation of this, but idk how else to do it
+    public GameObject tracking;
+    private Switchable trackingSwitchable;
+
     private SpriteRenderer shadowSprite;
 
     // Start is called before the first frame update
     void Start() {
-        switch (side) {
-        case Side.Foreground:
+        trackingSwitchable = tracking.GetComponent<Switchable>();
+
+        if (side == trackingSwitchable.side) {
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
                 0.0f
             );
-            break;
-        case Side.Background:
+
+            sprite.color = Color.white;
+        } else {
             transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
                 1.0f
             );
-            break;
         }
 
         sprite = GetComponent<SpriteRenderer>();
@@ -55,8 +63,10 @@ public class Switchable : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         float targetZ = 0.0f;
-        if (side == Side.Background) {
+        Color targetColor = Color.white;
+        if (side != trackingSwitchable.side) {
             targetZ += 1.0f;
+            targetColor = BG_COLOR;
         }
 
         // TODO: this algorithm is framerate dependant, which
@@ -64,6 +74,7 @@ public class Switchable : MonoBehaviour {
         // (i think this is a pretty easy fix but i don't wanna deal
         //  with it right now)
         transform.position += new Vector3(0, 0, (targetZ - transform.position.z) / 4);
+        sprite.color = Color.Lerp(sprite.color, targetColor, 0.25f);
 
         if (castsShadow) {
             shadow.transform.position = new Vector3(
