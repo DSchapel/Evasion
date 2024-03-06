@@ -21,9 +21,7 @@ public class ghostChase : MonoBehaviour
     {
         personalSpeed = (float) speed;
         distance = Vector2.Distance(transform.position, target.position);
-        if (distance<5){
-            personalSpeed=5;
-        }
         transform.position = Vector2.MoveTowards(transform.position, target.position,personalSpeed*Time.deltaTime);
     }
+
 }

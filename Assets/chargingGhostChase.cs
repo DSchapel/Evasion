@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class chargingGhostChase : MonoBehaviour
 {
-    private Transform target;
+   private Transform target;
     public float speed;
+    public float chargeSpeed;
     private float distance;
     private float personalSpeed;
-    public float distanceToShoot;
-    private float timeToFire;
-    public float fireRate;
-    public GameObject bullet;
-
-    public Transform firingPoint;
-
+    private float chargeTime = 4;
+    public float pauseTime;
+    private float mePauseTime;
+    public float chargeLength;
+    private Vector2 lastPosition; 
+    private float xPos;
+    private float yPos;
+    public float rangeOfCharge;
+    public float chargingUpSpeed;
+    public int randomNumber;
+    
+   
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         personalSpeed = (float) speed;
-        timeToFire = fireRate;
-
+        mePauseTime = (float) pauseTime;
     }
 
     // Update is called once per frame
@@ -29,24 +34,37 @@ public class chargingGhostChase : MonoBehaviour
     {
         personalSpeed = (float) speed;
         distance = Vector2.Distance(transform.position, target.position);
-        Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-        transform.up = direction;
-        Shoot();
-        transform.position = Vector2.MoveTowards(transform.position, target.position,personalSpeed*Time.deltaTime);
+        if (distance<rangeOfCharge){
+            Charge();
+            personalSpeed = (float) chargingUpSpeed;
+        } else{
+             chargeTime = chargeLength;
+             transform.position = Vector2.MoveTowards(transform.position, target.position,personalSpeed*Time.deltaTime);
+        }
     }
 
 
-private void Shoot() {
-    if (timeToFire<=0){
-        Instantiate(bullet, transform.position, transform.rotation);
-        timeToFire = fireRate;
+    void Charge(){
+         if (chargeTime<=chargeLength){
+        personalSpeed = chargeSpeed;
+        transform.position = Vector2.MoveTowards(transform.position, lastPosition,personalSpeed*Time.deltaTime);
+        chargeTime+=Time.deltaTime;
+        
     } else{
-        timeToFire -=Time.deltaTime;
+        if (mePauseTime<=0){
+            chargeTime=0;
+            mePauseTime = (float) pauseTime;
+            lastPosition = target.position;
+        } else{
+            randomNumber = Random.Range(1,2000)%10;
+            if (randomNumber>5){
+            transform.position = Vector2.MoveTowards(transform.position, target.position,(float)1*Time.deltaTime);
+            } else{
+            transform.position = Vector2.MoveTowards(transform.position, target.position,(float)-1*Time.deltaTime);}
+            mePauseTime-=Time.deltaTime;
+         
+        }
 
     }
-
-}
-
-
-
+    }
 }
