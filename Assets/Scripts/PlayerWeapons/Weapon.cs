@@ -6,10 +6,18 @@ public class Weapon : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] WeaponData data;
+    [SerializeField] Camera cam;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform firePoint;
+    [SerializeField] float bulletForce;
+
     public float timeSinceLastShot = 50f;
+    public int currentAmmo;
+    Vector2 mousePos;
 
     void Start()
     {
+        currentAmmo = data.maxAmmo;
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += startReload;
     }
@@ -29,24 +37,20 @@ public class Weapon : MonoBehaviour
         data.reloading = true;
 
         yield return new WaitForSeconds(data.reloadTime);
-        data.currentAmmo = data.maxAmmo;
+        currentAmmo = data.maxAmmo;
 
         data.reloading = false;
     }
 
     public void Shoot()
     {
-        if (data.currentAmmo > 0)
+        if (currentAmmo > 0)
         {
             if (canShoot())
             {
                 Debug.Log("shot");
-                if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, data.maxDistance))
-                {
-                    Debug.Log(hitInfo.transform.name);
-                }
 
-                data.currentAmmo--;
+                currentAmmo--;
                 timeSinceLastShot = 0;
                 OnGunShot();
             }
@@ -56,9 +60,13 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnGunShot()
     {
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 }

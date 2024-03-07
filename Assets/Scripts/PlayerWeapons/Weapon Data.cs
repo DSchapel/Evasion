@@ -14,7 +14,6 @@ public class WeaponData: ScriptableObject
     public float maxDistance;
 
     [Header ("Reloading")]
-    public int currentAmmo;
     public int maxAmmo;
     public float fireRate;
     public float reloadTime;
