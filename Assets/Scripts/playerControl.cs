@@ -11,6 +11,8 @@ public class playerControl : MonoBehaviour
     void Update() {
         float speedX = Input.GetAxisRaw("Horizontal")*movSpeed;
         float speedY = Input.GetAxisRaw("Vertical")*movSpeed;
-        transform.position += new Vector3(speedX, speedY, 0) * Time.deltaTime;
+        Vector3 vector = new Vector3(speedX, speedY, 0);
+        
+        transform.position += Vector3.Normalize(vector) * Time.deltaTime * 6;
     }
 }
