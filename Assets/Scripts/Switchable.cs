@@ -51,4 +51,27 @@ public class Switchable : MonoBehaviour {
         //  with it right now)
         sprite.color = Color.Lerp(sprite.color, targetColor, 0.25f);
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        GameObject gameObject = other.gameObject;
+
+        if (gameObject.tag != "Portal") {
+            return;
+        }
+
+        Switchable switchable = gameObject.GetComponent<Switchable>();
+
+        if (switchable == null || side != switchable.side) {
+            return;
+        }
+
+        switch (switchable.side) {
+        case Side.Foreground:
+            side = Side.Background;
+            break;
+        case Side.Background:
+            side = Side.Foreground;
+            break;
+        }
+    }
 }
