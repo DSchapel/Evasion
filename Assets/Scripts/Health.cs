@@ -10,7 +10,7 @@ using UnityEngine;
             curHealth = maxHealth;
         }
         void Update(){
-            if( Input.GetKeyDown( KeyCode.Space )){DamagePlayer(10);}
+            if( Input.GetKeyDown( KeyCode.B )){DamagePlayer(10);}
         }
         public void DamagePlayer(int damage ){
             curHealth -= damage;
