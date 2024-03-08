@@ -9,7 +9,7 @@ public class playerControl : MonoBehaviour
     float speedX, speedY;
     private bool canDash = true;
     private bool isDashing;
-    private float dashingPower = 24f;
+    public float dashingPower = 24f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
     //[SerializeField] private TrailRenderer tr;
