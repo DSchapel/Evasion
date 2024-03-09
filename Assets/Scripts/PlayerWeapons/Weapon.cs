@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] float bulletForce;
+    [SerializeField] Rigidbody2D rb;
 
     public float timeSinceLastShot = 50f;
     public int currentAmmo;
@@ -61,6 +62,14 @@ public class Weapon : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = rotation;
     }
 
     private void OnGunShot()
