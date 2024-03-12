@@ -7,6 +7,8 @@ public class PlayerBullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Weapon gun = FindObjectOfType<Weapon>();
+        gun.checkHit(collision);
         Destroy(gameObject);
     }
 
