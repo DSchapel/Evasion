@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SadGhost : MonoBehaviour
-{
+public class SadGhost : MonoBehaviour {
     public Sprite[] frames;
     public GameObject eyes;
 
@@ -11,7 +8,6 @@ public class SadGhost : MonoBehaviour
     private float timer;
 
     private GameObject player;
-    
 
     void Start() {
         render = GetComponent<SpriteRenderer>();

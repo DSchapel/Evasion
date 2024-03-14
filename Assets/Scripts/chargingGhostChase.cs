@@ -67,4 +67,20 @@ public class chargingGhostChase : MonoBehaviour
 
     }
     }
+
+    public bool IsPausing() {
+        return distance < rangeOfCharge
+            && chargeTime > chargeLength
+            && mePauseTime > 0;
+    }
+
+    public float PauseTimeLeft() {
+        return mePauseTime;
+    }
+
+    public bool IsCharging() {
+        return distance < rangeOfCharge
+            && chargeTime <= chargeLength
+            && (Vector2) transform.position != lastPosition;
+    }
 }
