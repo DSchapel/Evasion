@@ -14,6 +14,7 @@ public class rangedGhostChase : MonoBehaviour
     public GameObject bullet;
 
     public Transform firingPoint;
+    public bool shouldRotate = true;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,12 @@ public class rangedGhostChase : MonoBehaviour
     {
         personalSpeed = (float) speed;
         distance = Vector2.Distance(transform.position, target.position);
-        Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-        transform.up = direction;
+
+        if (shouldRotate) {
+            Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+            transform.up = direction;
+        }
+
         Shoot();
         if (distance>distanceToShoot){
         transform.position = Vector2.MoveTowards(transform.position, target.position,personalSpeed*Time.deltaTime);
@@ -40,8 +45,15 @@ public class rangedGhostChase : MonoBehaviour
 
 private void Shoot() {
     if (timeToFire<=0){
+        Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        transform.up = direction;
+
         Instantiate(bullet, transform.position, transform.rotation);
         timeToFire = fireRate;
+
+        if (!shouldRotate) {
+            transform.up = Vector2.up;
+        }
     } else{
         timeToFire -=Time.deltaTime;
 
