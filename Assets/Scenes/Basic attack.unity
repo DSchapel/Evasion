@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 1647630775}
   - component: {fileID: 1647630777}
   - component: {fileID: 1647630778}
+  - component: {fileID: 1647630779}
+  - component: {fileID: 1647630780}
   m_Layer: 0
   m_Name: very real player
   m_TagString: Untagged
@@ -347,6 +349,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1647630779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647630773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156605cef7a2f3c40903966c3cc55efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityKey: 101
+--- !u!114 &1647630780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647630773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dceb568b57f927c4eb2e82c619f1a041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 4945052976336815569, guid: b0609387da2fdbb4eaad349fb7d1e8dc, type: 3}
+  firePoint: {fileID: 2125830723}
+  ability: 0
+--- !u!4 &2125830723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8621159136474459809, guid: 955d920a2f581dd4e9c80fce3e00c200, type: 3}
+  m_PrefabInstance: {fileID: 1223231164302199103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223231164302199103
 PrefabInstance:
   m_ObjectHideFlags: 0
