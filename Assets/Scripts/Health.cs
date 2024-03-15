@@ -15,5 +15,8 @@ using UnityEngine;
         public void DamagePlayer(int damage ){
             curHealth -= damage;
         healthBar.SetHealth( curHealth );
+        if (curHealth<=0){
+            Destroy(gameObject);
+        }
         }
     }
