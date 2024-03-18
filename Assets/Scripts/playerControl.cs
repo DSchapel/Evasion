@@ -5,7 +5,10 @@ using UnityEngine;
 public class playerControl : MonoBehaviour
 {
 
-    public float movSpeed;
+    public float movSpeed=6.0f;
+    public float Speed = 50.0f;
+    public float friction=50.0f;
+    Vector3 currspeed;
     float speedX, speedY;
     private bool canDash = true;
     private bool isDashing;
@@ -38,11 +41,25 @@ public class playerControl : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
-        float speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
-        float speedY = Input.GetAxisRaw("Vertical") * movSpeed;
+        float speedX = Input.GetAxisRaw("Horizontal");
+        float speedY = Input.GetAxisRaw("Vertical") ;
         Vector3 vector = new Vector3(speedX, speedY, 0);
-
-        transform.position += Vector3.Normalize(vector) * Time.deltaTime * 6;
+        currspeed += vector.normalized * Time.deltaTime * (Speed + friction);
+        if(currspeed.magnitude < friction*Time.deltaTime)
+        {
+            currspeed = new(0,0,0);
+        }
+        else
+        {
+            currspeed -= currspeed.normalized * friction * Time.deltaTime;
+        }
+        if (currspeed.magnitude > movSpeed)
+        {
+            currspeed = currspeed.normalized*movSpeed;
+        }
+        //transform.position += Vector3.Normalize(vector) * Time.deltaTime * 6;
+        transform.position += (currspeed * Time.deltaTime);
+    
     }
     private IEnumerator Dash()
     {
