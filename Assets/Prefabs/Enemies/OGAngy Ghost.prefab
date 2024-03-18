@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2595769542050772688}
   - component: {fileID: 5320498951409418941}
   - component: {fileID: 9133249902867426068}
-  - component: {fileID: -5868750411624826326}
   m_Layer: 0
   m_Name: OGAngy Ghost
   m_TagString: Enemy
@@ -222,23 +221,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &-5868750411624826326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5230561245917316999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 983a4fc1a167a20c8b4d6f15264aca2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frames:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  chargeFrames:
-  - {fileID: 0}
-  - {fileID: 0}
