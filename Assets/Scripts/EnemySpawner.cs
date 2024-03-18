@@ -32,6 +32,16 @@ public class EnemySpawner : MonoBehaviour {
         infos = particles.Select(r => new ParticleInfo(r)).ToArray();
         state = State.Spawning;
         timer = timeUntilSpawn;
+
+        for (var i = 0; i < infos.Length; i++) {
+            var info = infos[i];
+            var angle = i * Mathf.PI * 2.0f / frames.Length;
+
+            var offset = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0.0f);
+            info.obj.transform.position = transform.position + offset;
+
+            info.render.sprite = frames[frames.Length - 1];
+        }
     }
 
     void Update() {

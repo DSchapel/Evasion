@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ghost
   prefab: {fileID: 6426320320919547618, guid: 6fd43f84d9eb0f9d98d252d2b8599773, type: 3}
+  spawner: {fileID: 7300807064467213637, guid: ccf2c17aeed8b1b8c82a4225437ed033, type: 3}
   power: 1
   weight: 2
   limit: 3
-  color: {r: 0.362907, g: 0.76253736, b: 1, a: 0}
   maxHealth: 50
   damage: 20

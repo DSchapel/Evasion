@@ -7,6 +7,7 @@ public class Enemy : ScriptableObject
     [Header("Info")]
     public new string name;
     public GameObject prefab;
+    public GameObject spawner;
 
     [Header("Spawn Info")]
     // how difficult the enemy is (higher: less enemies of this type can exist at once)
@@ -16,7 +17,6 @@ public class Enemy : ScriptableObject
     // limit of how many of the same enemy type can spawn
     // (resets if no spawnable enemies are left)
     public int limit;
-    public Color color;
 
     [Header("Values")]
     public float maxHealth;

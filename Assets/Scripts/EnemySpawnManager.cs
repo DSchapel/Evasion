@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour {
@@ -8,7 +9,6 @@ public class EnemySpawnManager : MonoBehaviour {
 	public float minSpawnRange;
 	public float maxSpawnRange;
 	public float timeBetweenSpawns;
-	public GameObject spawner;
 	public Enemy[] spawns;
 
 	[Header("Wave Info")]
@@ -77,12 +77,14 @@ public class EnemySpawnManager : MonoBehaviour {
 		var range = maxSpawnRange - minSpawnRange;
 		var offset = unit * minSpawnRange + vec * range;
 		
-		var obj = Instantiate(spawner);
+		var obj = Instantiate(enemy.spawner ?? enemy.prefab);
 		obj.transform.position = transform.position + offset;
 		
-		var component = obj.GetComponent<EnemySpawner>();
-		component.enemy = enemy;
-		component.manager = this;
+		if (enemy.spawner != null) {
+			var component = obj.GetComponent<EnemySpawner>();
+			component.enemy = enemy;
+			component.manager = this;
+		}
 
 		aliveEnemies.Add(obj);
 	}
