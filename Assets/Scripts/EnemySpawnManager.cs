@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour {
+public class EnemySpawnManager : MonoBehaviour {
 	[Header("Enemy Spawn Info")]
 	public float minSpawnRange;
 	public float maxSpawnRange;
