@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Enemy")]
@@ -18,6 +16,7 @@ public class Enemy : ScriptableObject
     // limit of how many of the same enemy type can spawn
     // (resets if no spawnable enemies are left)
     public int limit;
+    public Color color;
 
     [Header("Values")]
     public float maxHealth;

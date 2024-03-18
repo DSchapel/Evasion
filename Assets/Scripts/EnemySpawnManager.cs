@@ -8,6 +8,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	public float minSpawnRange;
 	public float maxSpawnRange;
 	public float timeBetweenSpawns;
+	public GameObject spawner;
 	public Enemy[] spawns;
 
 	[Header("Wave Info")]
@@ -76,8 +77,12 @@ public class EnemySpawnManager : MonoBehaviour {
 		var range = maxSpawnRange - minSpawnRange;
 		var offset = unit * minSpawnRange + vec * range;
 		
-		var obj = Instantiate(enemy.prefab);
+		var obj = Instantiate(spawner);
 		obj.transform.position = transform.position + offset;
+		
+		var component = obj.GetComponent<EnemySpawner>();
+		component.enemy = enemy;
+		component.manager = this;
 
 		aliveEnemies.Add(obj);
 	}
@@ -150,4 +155,8 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	public int Wave { get { return wave; }}
+
+	public void AddEnemy(GameObject enemy) {
+		aliveEnemies.Add(enemy);
+	}
 }

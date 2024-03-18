@@ -17,5 +17,6 @@ MonoBehaviour:
   power: 3
   weight: 3
   limit: 2
+  color: {r: 1, g: 0.22463357, b: 0.36005923, a: 0}
   maxHealth: 25
   damage: 50
