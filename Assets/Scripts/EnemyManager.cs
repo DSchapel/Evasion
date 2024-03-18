@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyManager : MonoBehaviour
 {
-
+    public static UnityAction enemyDeath;
     [Header("References")]
     [SerializeField] Enemy data;
 
@@ -25,6 +27,11 @@ public class EnemyManager : MonoBehaviour
     public void takeDamage(float dam)
     {
         currentHealth -= dam;
-        if(currentHealth <= 0) { Destroy(gameObject); }
+
+        if(currentHealth <= 0)
+        {
+            enemyDeath?.Invoke();
+            Destroy(gameObject); 
+        }
     }
 }
