@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Witch
   m_EditorClassIdentifier: 
   name: Witch
+  prefab: {fileID: 9217527098182247245, guid: 20e22cad65cf11f8d998eb7878af55ef, type: 3}
+  power: 5
+  weight: 1
   maxHealth: 100
   damage: 30

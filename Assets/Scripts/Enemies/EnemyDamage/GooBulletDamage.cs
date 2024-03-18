@@ -5,12 +5,18 @@ using UnityEngine;
 public class GooBulletDamage : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Health Health;
-    public int damage;
-    private void OnCollisionEnter2D(Collision2D collision){
-    if(collision.gameObject.tag=="Player"){
-    Health.DamagePlayer(damage);
+    
+    public int damage = 20;
 
+   
+
+    
+    private void OnCollisionEnter2D(Collision2D collision){
+    
+    if(collision.gameObject.tag==("Player")){
+    
+    var healthController=collision.gameObject.GetComponent<Health>();
+    healthController.DamagePlayer(damage);
     }
     }
 }
