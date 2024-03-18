@@ -16,7 +16,19 @@ using UnityEngine;
             curHealth -= damage;
         healthBar.SetHealth( curHealth );
         if (curHealth<=0){
-            Destroy(gameObject);
+            print("this is when player died, the end");
         }
         }
+        public void HealPlayer(int heal){
+            if (curHealth+heal>maxHealth){
+                curHealth=maxHealth;
+                healthBar.SetHealth(curHealth);
+            } else{
+            curHealth+=heal;
+        healthBar.SetHealth(curHealth);
+            }
+        }
+
+
+
     }
