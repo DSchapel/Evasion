@@ -8,23 +8,33 @@ public class AbilityDatabase : MonoBehaviour
     [SerializeField] Transform firePoint;
 
     public int ability;
+    public float timeSinceLastShot = 50f;
+    public float cooldown;
     // Start is called before the first frame update
     void Start()
     {
         AbilitySystem.abilityInput += Ability;
+        if(ability == 0)
+        {
+            cooldown = 5f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timeSinceLastShot += Time.deltaTime;
     }
 
     public void Ability()
     {
         if(ability == 0)
         {
-            AntiSpectralBall();
+            if (timeSinceLastShot >= cooldown)
+            {
+                AntiSpectralBall();
+                timeSinceLastShot = 0;
+            }
         }
     }
 
