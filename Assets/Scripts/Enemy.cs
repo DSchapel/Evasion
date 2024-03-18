@@ -15,6 +15,9 @@ public class Enemy : ScriptableObject
     public float power;
     // how likely the enemy is to spawn (higher: higher chance)
     public float weight;
+    // limit of how many of the same enemy type can spawn
+    // (resets if no spawnable enemies are left)
+    public int limit;
 
     [Header("Values")]
     public float maxHealth;

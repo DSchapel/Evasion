@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class EnemySpawner : MonoBehaviour {
 	private int wave;
 	private float nextSpawnTimer;
 	private float nextWaveTimer;
+	private float totalPossibleWeight;
 
 	void Start() {
 		pendingSpawns = new();
@@ -26,6 +28,11 @@ public class EnemySpawner : MonoBehaviour {
 		wave = 1;
 		nextSpawnTimer = 0.0f;
 		nextWaveTimer = timeBetweenWaves;
+
+		totalPossibleWeight = 0.0f;
+		foreach (var enemy in spawns) {
+			totalPossibleWeight += enemy.weight;
+		}	
 	}
 
 	void Update() {
@@ -63,7 +70,7 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	private void SpawnEnemy(Enemy enemy) {
-		var vec = (Vector3) Random.insideUnitCircle;
+		var vec = (Vector3) UnityEngine.Random.insideUnitCircle;
 		var unit = vec.normalized;
 
 		var range = maxSpawnRange - minSpawnRange;
@@ -80,35 +87,64 @@ public class EnemySpawner : MonoBehaviour {
 		// function, we'll need to properly test this
 		// and pick a nice one
 		var power = (float) wave;
-		Debug.Log(power);
 
-		var options = spawns.ToList();
-		while (power > 0.0f) {
-			var totalWeight = 0.0f;
-			options.RemoveAll(e => {
-				if (e.power > power) {
-					return true;
-				}
+		var spawnsLeft = spawns.Select(e => e.limit).ToArray();
+		var totalWeight = totalPossibleWeight;
 
-				totalWeight += e.weight;
+		bool canSpawnEnemy(int index) {
+			Enemy enemy = spawns[index];
+
+			if (enemy.power > power) {
 				return false;
-			});
-
-			var weight = Random.Range(0.0f, totalWeight);
-			var enemy = options.Find(enemy => {
-				weight -= enemy.weight;
-				if (weight > 0.0f) {
-					return false;
-				}
-
-				return true;
-			});
-
-			if (!enemy) {
-				return;
 			}
 
+			if (spawnsLeft[index] <= 0) {
+				return false;
+			}
+
+			return true;
+		}
+
+		int chooseEnemy() {
+			var weight = UnityEngine.Random.Range(0.0f, totalWeight);
+
+			for (var i = 0; i < spawns.Length; i++) {
+				if (!canSpawnEnemy(i)) {
+					continue;
+				}
+
+				weight -= spawns[i].weight;
+				if (weight > 0) {
+					continue;
+				}
+
+				return i;
+			}
+
+			return -1;
+		}
+
+		while (power > 0.0f) {
+			var index = chooseEnemy();
+			if (index < 0) {
+				spawnsLeft = spawns.Select(e => e.limit).ToArray();
+				totalWeight = totalPossibleWeight;
+
+				index = chooseEnemy();
+				if (index < 0) {
+					return;
+				}
+			}
+
+			var enemy = spawns[index];
+
 			power -= enemy.power;
+			spawnsLeft[index] -= 1;
+
+			if (!canSpawnEnemy(index)) {
+				totalWeight -= enemy.weight;
+			}
+
 			pendingSpawns.Enqueue(enemy);
 		}
 	}

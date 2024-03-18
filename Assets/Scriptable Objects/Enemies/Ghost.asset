@@ -16,5 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 6426320320919547618, guid: 6fd43f84d9eb0f9d98d252d2b8599773, type: 3}
   power: 1
   weight: 2
+  limit: 3
   maxHealth: 50
   damage: 20
