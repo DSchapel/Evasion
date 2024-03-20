@@ -54,4 +54,12 @@ public class AbilityDatabase : MonoBehaviour
             enemy.takeDamage(damage);
         }
     }
+
+    public float getShotTime() {
+        return timeSinceLastShot;
+    }
+
+    public float getCooldown() {
+        return cooldown;
+    }
 }
