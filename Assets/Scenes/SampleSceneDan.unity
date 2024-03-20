@@ -1418,8 +1418,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream
-=======
 --- !u!114 &1602743971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,7 +1491,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25dbdd0dd7d1c1e45ace9c92e7c7abf9, type: 3}
->>>>>>> Stashed changes
 --- !u!1001 &1874318792
 PrefabInstance:
   m_ObjectHideFlags: 0
