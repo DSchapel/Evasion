@@ -509,6 +509,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &513732305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4272086227548311906, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+  m_PrefabInstance: {fileID: 1491838650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,6 +1681,8 @@ GameObject:
   - component: {fileID: 1991731796}
   - component: {fileID: 1991731798}
   - component: {fileID: 1991731799}
+  - component: {fileID: 1991731801}
+  - component: {fileID: 1991731800}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1880,6 +1887,36 @@ MonoBehaviour:
   curHealth: 70
   maxHealth: 100
   healthBar: {fileID: 93042537}
+--- !u!114 &1991731800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991731790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156605cef7a2f3c40903966c3cc55efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityKey: 101
+--- !u!114 &1991731801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991731790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dceb568b57f927c4eb2e82c619f1a041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 4945052976336815569, guid: b0609387da2fdbb4eaad349fb7d1e8dc, type: 3}
+  firePoint: {fileID: 513732305}
+  ability: 0
+  timeSinceLastShot: 50
+  cooldown: 0
 --- !u!4 &2007982388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8396600445661958493, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
