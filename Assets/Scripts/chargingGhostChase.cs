@@ -32,6 +32,10 @@ public class chargingGhostChase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var healthController=gameObject.GetComponent<EnemyManager>();
+        if (healthController.currentHealth<=0){
+        Destroy(gameObject);
+    }
         personalSpeed = (float) speed;
         distance = Vector2.Distance(transform.position, target.position);
         if (distance<rangeOfCharge){

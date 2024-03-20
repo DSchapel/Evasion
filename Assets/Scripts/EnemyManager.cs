@@ -31,7 +31,7 @@ public class EnemyManager : MonoBehaviour
         if(currentHealth <= 0)
         {
             enemyDeath?.Invoke();
-            Destroy(gameObject); 
+            //Destroy(gameObject); 
         }
     }
 }

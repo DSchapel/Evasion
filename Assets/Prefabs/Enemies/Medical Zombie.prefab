@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3993414017634670323}
   - component: {fileID: 4353642348409476432}
-  - component: {fileID: 6065164394102834969}
   - component: {fileID: 6567163508765503371}
   - component: {fileID: 3681277716902866912}
   - component: {fileID: 751915230955285594}
+  - component: {fileID: 1073269847226979107}
+  - component: {fileID: 8831140353292812053}
   m_Layer: 0
   m_Name: Medical Zombie
   m_TagString: Enemy
@@ -63,19 +64,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &6065164394102834969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3035857536317624435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bde93e9cc7dca5b4294312ab1aa31968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
 --- !u!114 &6567163508765503371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +164,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.64, y: 0.64}
   m_Direction: 0
+--- !u!114 &1073269847226979107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035857536317624435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d94664754766344fae76e8e27c0632d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  medkit: {fileID: 177797833855449945, guid: 0274c2cf4a9420440b9186f92e7e926d, type: 3}
+--- !u!114 &8831140353292812053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035857536317624435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46c3d004d31023b42bf8648a6f57c981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 41bb670c85a9a6040976f3aac44ca980, type: 2}
+  currentHealth: 20
