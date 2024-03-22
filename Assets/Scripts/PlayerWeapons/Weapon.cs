@@ -88,4 +88,8 @@ public class Weapon : MonoBehaviour
             enemy.takeDamage(data.damage);
         }
     }
+
+    public int getMaxAmmo() {
+        return data.maxAmmo;
+    }
 }
