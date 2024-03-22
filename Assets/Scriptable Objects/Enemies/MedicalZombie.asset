@@ -16,7 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 3035857536317624435, guid: fd6c7283d200ec84496ee755b3182ae9, type: 3}
   spawner: {fileID: 2330862176275760102, guid: a6756c8d1d89a713cb64db2a304533d5, type: 3}
   power: 2
-  weight: 2
+  weight: 0.25
   limit: 2
   maxHealth: 100
   damage: 10
