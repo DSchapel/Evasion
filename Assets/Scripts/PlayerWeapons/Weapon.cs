@@ -92,4 +92,8 @@ public class Weapon : MonoBehaviour
     public int getMaxAmmo() {
         return data.maxAmmo;
     }
+    public void setDamage(int damage)
+    {
+        data.damage += damage;
+    }
 }
