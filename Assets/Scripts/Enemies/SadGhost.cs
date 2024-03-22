@@ -3,14 +3,19 @@ using UnityEngine;
 public class SadGhost : MonoBehaviour {
     public Sprite[] frames;
     public GameObject eyes;
+    private Switchable eyesSwitchable;
 
     private SpriteRenderer render;
+    private Switchable switchable;
     private float timer;
 
     private GameObject player;
 
     void Start() {
         render = GetComponent<SpriteRenderer>();
+        switchable = GetComponent<Switchable>();
+        eyesSwitchable = eyes.GetComponent<Switchable>();
+
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -38,5 +43,6 @@ public class SadGhost : MonoBehaviour {
         }
         
         eyes.transform.position = pos + offset * 0.06f;
+        eyesSwitchable.side = switchable.side;
     }
 }
