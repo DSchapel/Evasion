@@ -16,6 +16,10 @@ public class bulletDirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         var healthController=gameObject.GetComponent<EnemyManager>();
+        if (healthController.currentHealth<=0){
+        Destroy(gameObject);
+        }
         transform.Translate(Vector2.up*speed*Time.deltaTime);
         distance = Vector2.Distance(transform.position, target.position); 
         if (distance>10){
