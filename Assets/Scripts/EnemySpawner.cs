@@ -112,4 +112,8 @@ public class EnemySpawner : MonoBehaviour {
             info.render.color = new(1.0f, 1.0f, 1.0f, 0.5f - timer);
         }
     }
+
+    public float getTimer() {
+        return timer;
+    }
 }
