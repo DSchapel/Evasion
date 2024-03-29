@@ -62,6 +62,10 @@ public class Weapon : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        if(currentAmmo <= 0)
+        {
+            startReload();
+        }
     }
 
     void FixedUpdate()
