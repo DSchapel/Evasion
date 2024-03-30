@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd61f84008f32404baef6adf6e932121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.25
+  damage: 2
   col: {x: 0, y: 0}
   enemies:
     serializedVersion: 2

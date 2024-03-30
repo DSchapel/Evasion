@@ -20,9 +20,14 @@ public class AntiSpectralBall : MonoBehaviour
 
     void Update()
     {
+        Destroy(gameObject, 3f);
+    }
+
+    void FixedUpdate()
+    {
         col.x = circle.position.x; col.y = circle.position.y;
         isCol = Physics2D.OverlapCircleNonAlloc(col, 1, results, enemies);
-        if(isCol > 0)
+        if (isCol > 0)
         {
             AbilityDatabase master = FindObjectOfType<AbilityDatabase>();
             for (int i = 0; i < isCol; i++)
@@ -30,6 +35,5 @@ public class AntiSpectralBall : MonoBehaviour
                 master.checkHit(results[i], damage);
             }
         }
-        Destroy(gameObject, 3f);
     }
 }

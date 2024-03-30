@@ -227,6 +227,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &102742322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4272086227548311906, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+  m_PrefabInstance: {fileID: 143004958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &143004958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1854,7 +1859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 7791626128986071195, guid: a5164ac7c52046840951f50574fe87ef, type: 3}
-  firePoint: {fileID: 1212796778}
+  firePoint: {fileID: 102742322}
   ability: 0
   timeSinceLastShot: 50
   cooldown: 0

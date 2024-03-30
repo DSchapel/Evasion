@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  medkit: {fileID: 177797833855449945, guid: 0274c2cf4a9420440b9186f92e7e926d, type: 3}
+  medkit: {fileID: 6355768042968392599, guid: cab8a1504fa480f46a5a4e418e23af2a, type: 3}
 --- !u!114 &8831140353292812053
 MonoBehaviour:
   m_ObjectHideFlags: 0

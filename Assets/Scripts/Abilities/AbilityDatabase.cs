@@ -16,15 +16,7 @@ public class AbilityDatabase : MonoBehaviour
     void Start()
     {
         AbilitySystem.abilityInput += Ability;
-        if(ability == 0)
-        {
-            cooldown = 5f;
-        }
-        if(ability == 1)
-        {
-            cooldown = 10f;
-            buffTime = 10f;
-        }
+        AbilitySetup(); ;
     }
 
     // Update is called once per frame
@@ -37,6 +29,19 @@ public class AbilityDatabase : MonoBehaviour
         else
         {
             timeSinceLastShot += Time.deltaTime;
+        }
+    }
+
+    public void AbilitySetup()
+    {
+        if (ability == 0)
+        {
+            cooldown = 5f;
+        }
+        if (ability == 1)
+        {
+            cooldown = 10f;
+            buffTime = 10f;
         }
     }
 
