@@ -10,6 +10,8 @@ public class AbilityDatabase : MonoBehaviour
     public int ability;
     public float timeSinceLastShot = 50f;
     public float cooldown;
+    public float buffTime;
+    public bool isBuffed;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +20,24 @@ public class AbilityDatabase : MonoBehaviour
         {
             cooldown = 5f;
         }
+        if(ability == 1)
+        {
+            cooldown = 10f;
+            buffTime = 10f;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastShot += Time.deltaTime;
+        if (isBuffed)
+        {
+            timeSinceLastShot -= Time.deltaTime;
+        }
+        else
+        {
+            timeSinceLastShot += Time.deltaTime;
+        }
     }
 
     public void Ability()
@@ -36,16 +50,48 @@ public class AbilityDatabase : MonoBehaviour
                 timeSinceLastShot = 0;
             }
         }
+        if(ability == 1)
+        {
+            if(timeSinceLastShot >= cooldown)
+            {
+                if (!isBuffed)
+                {
+                    SpectralEnhancement();
+                }
+            }
+        }
     }
 
     public void AntiSpectralBall()
     {
         GameObject ball = Instantiate(ballPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * 20f, ForceMode2D.Impulse);
+        rb.AddForce(firePoint.up * 3f, ForceMode2D.Impulse);
     }
 
-    public void checkHit(Collision2D col, int damage)
+    public void SpectralEnhancement()
+    {
+        timeSinceLastShot = buffTime;
+        Weapon weapon = FindObjectOfType<Weapon>();
+        WeaponData data = weapon.getData();
+        isBuffed = true;
+        weapon.currentAmmo = 9999;
+        data.damage *= 1.3f;
+        StartCoroutine(DeEnhance());
+    }
+
+    public IEnumerator DeEnhance()
+    {
+        Weapon weapon = FindObjectOfType<Weapon>();
+        WeaponData data = weapon.getData();
+        yield return new WaitForSeconds(buffTime);
+        isBuffed = false;
+        timeSinceLastShot = 0;
+        weapon.currentAmmo = data.maxAmmo;
+        data.damage /= 1.3f;
+    }
+
+    public void checkHit(Collider2D col, float damage)
     {
         GameObject hit = col.gameObject;
         if (hit.tag == "Enemy")

@@ -100,4 +100,8 @@ public class Weapon : MonoBehaviour
     {
         data.damage += damage;
     }
+    public WeaponData getData()
+    {
+        return data;
+    }
 }
