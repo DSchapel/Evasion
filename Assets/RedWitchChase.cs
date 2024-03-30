@@ -77,6 +77,7 @@ y = (float) 1;
         Vector2 directionOne = new Vector2(transform.position.x + (float)x, transform.position.y + (float) y);
         Vector2 directionTwo = new Vector2(transform.position.x, transform.position.y);
         Vector2 directionThree = new Vector2(transform.position.x - (float) x, transform.position.y - (float) y);
+        
 
         Instantiate(bullet, directionOne, transform.rotation);
         Instantiate(bullet, directionTwo, transform.rotation);

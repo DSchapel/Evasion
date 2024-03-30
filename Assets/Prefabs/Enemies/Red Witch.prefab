@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7693854972901750043}
   m_Layer: 0
   m_Name: Red Witch
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1.2, y: 1.2}
   m_EdgeRadius: 0
 --- !u!114 &6872627158044342740
 MonoBehaviour:
@@ -175,7 +175,7 @@ MonoBehaviour:
   speed: 2
   distanceToShoot: 3.25
   fireRate: 3
-  bullet: {fileID: 7735394209296175330, guid: 228ea983d162f584b91058ba71e757b0, type: 3}
+  bullet: {fileID: 3828990584275499427, guid: d43314ff73e8da24783d13498acf6dcd, type: 3}
   shouldRotate: 1
 --- !u!114 &7693854972901750043
 MonoBehaviour:
