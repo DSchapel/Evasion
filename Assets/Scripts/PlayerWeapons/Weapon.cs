@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] float bulletForce;
     [SerializeField] Rigidbody2D rb;
+    private AudioSource audioSource;
 
     public float timeSinceLastShot = 50f;
     public int currentAmmo;
@@ -21,6 +22,7 @@ public class Weapon : MonoBehaviour
         currentAmmo = data.maxAmmo;
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += startReload;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public bool canShoot() => !data.reloading && timeSinceLastShot > 1f / (data.fireRate / 60f);
@@ -81,6 +83,7 @@ public class Weapon : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        playShotAudio();
     }
 
     public void checkHit(Collision2D col)
@@ -103,5 +106,10 @@ public class Weapon : MonoBehaviour
     public WeaponData getData()
     {
         return data;
+    }
+
+    public void playShotAudio()
+    {
+        audioSource.Play();
     }
 }
