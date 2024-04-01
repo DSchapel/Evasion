@@ -13,10 +13,12 @@ public class AbilityDatabase : MonoBehaviour
     public float buffTime;
     public bool isBuffed;
     // Start is called before the first frame update
+    public AbilityAudioScript abilityAudioScript0;
+    public AbilityAudioScript abilityAudioScript1;
     void Start()
     {
         AbilitySystem.abilityInput += Ability;
-        AbilitySetup(); ;
+        AbilitySetup();
     }
 
     // Update is called once per frame
@@ -78,6 +80,7 @@ public class AbilityDatabase : MonoBehaviour
         GameObject ball = Instantiate(ballPrefab, firePoint.position, new());
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * 3f, ForceMode2D.Impulse);
+        abilityAudioScript0.playSound();
     }
 
     public void SpectralEnhancement()
