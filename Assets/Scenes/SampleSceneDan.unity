@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &36434100
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4074880058999400219, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_Name
+      value: Blue Witch (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.182723
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.33454597
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
 --- !u!1 &93042535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,6 +1183,124 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &940274192
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4074880058999400219, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_Name
+      value: Blue Witch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211385693721140958, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: fireRate
+      value: 3.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+--- !u!1001 &1189178512
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6179751584680357764, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_Name
+      value: Red Witch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0644646
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7929679
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.012401603
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
 --- !u!1 &1469463175
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,6 +6132,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4272086227548311906, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
   m_PrefabInstance: {fileID: 1491838650}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1806420790
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6179751584680357764, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_Name
+      value: Red Witch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.884434
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5949796
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.012401603
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720322552626293205, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
 --- !u!1 &1877656093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6091,6 +6323,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1904323271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4074880058999400219, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_Name
+      value: Blue Witch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8449383
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.91679335
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
 --- !u!1 &1906100223
 GameObject:
   m_ObjectHideFlags: 0
@@ -6567,3 +6856,8 @@ SceneRoots:
   - {fileID: 356707970}
   - {fileID: 452149742}
   - {fileID: 1980715605}
+  - {fileID: 940274192}
+  - {fileID: 1904323271}
+  - {fileID: 36434100}
+  - {fileID: 1189178512}
+  - {fileID: 1806420790}
