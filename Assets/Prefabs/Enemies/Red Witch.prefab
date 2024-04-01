@@ -176,7 +176,8 @@ MonoBehaviour:
   distanceToShoot: 3.25
   fireRate: 3
   bullet: {fileID: 3828990584275499427, guid: d43314ff73e8da24783d13498acf6dcd, type: 3}
-  shouldRotate: 1
+  shouldRotate: 0
+  spaceBetween: 0.5
 --- !u!114 &7693854972901750043
 MonoBehaviour:
   m_ObjectHideFlags: 0

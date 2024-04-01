@@ -207,6 +207,7 @@ MonoBehaviour:
   bullet: {fileID: 7735394209296175330, guid: 228ea983d162f584b91058ba71e757b0, type: 3}
   firingPoint: {fileID: 0}
   shouldRotate: 0
+  spaceBetween: 0.5
 --- !u!114 &3889164513401313394
 MonoBehaviour:
   m_ObjectHideFlags: 0

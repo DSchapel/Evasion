@@ -15,6 +15,9 @@ public class RedWitchChase : MonoBehaviour
 
     private Transform firingPoint;
     public bool shouldRotate = true;
+    public float spaceBetween = 1.5f;
+    GameObject[] enemy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,17 @@ public class RedWitchChase : MonoBehaviour
         if (healthController.currentHealth<=0){
         Destroy(gameObject);
     }
+     enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject go in enemy){
+            if (go!=gameObject){
+                float distanceBetween = Vector3.Distance(go.transform.position, this.transform.position);
+                if (distanceBetween<spaceBetween){
+                    Vector2 directionee = (transform.position - go.transform.position);
+                    
+                    transform.Translate(directionee*Time.deltaTime);
+                } 
+            }
+        }
         personalSpeed = (float) speed;
         distance = Vector2.Distance(transform.position, target.position);
 
@@ -42,6 +56,17 @@ public class RedWitchChase : MonoBehaviour
 
         Shoot();
         if (distance>distanceToShoot){
+             enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject go in enemy){
+            if (go!=gameObject){
+                float distanceBetween = Vector3.Distance(go.transform.position, this.transform.position);
+                if (distanceBetween<spaceBetween){
+                    Vector2 directionee = (transform.position - go.transform.position);
+                    
+                    transform.Translate(directionee*Time.deltaTime);
+                } 
+            }
+        }
         transform.position = Vector2.MoveTowards(transform.position, target.position,personalSpeed*Time.deltaTime);
         }
     }
