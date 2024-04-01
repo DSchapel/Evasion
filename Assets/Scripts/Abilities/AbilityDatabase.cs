@@ -32,6 +32,12 @@ public class AbilityDatabase : MonoBehaviour
         }
     }
 
+    public void AbilitySwitch(int newNum)
+    {
+        ability = newNum;
+        AbilitySetup();
+    }
+
     public void AbilitySetup()
     {
         if (ability == 0)
