@@ -75,7 +75,7 @@ public class AbilityDatabase : MonoBehaviour
 
     public void AntiSpectralBall()
     {
-        GameObject ball = Instantiate(ballPrefab, firePoint.position, firePoint.rotation);
+        GameObject ball = Instantiate(ballPrefab, firePoint.position, new());
         Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * 3f, ForceMode2D.Impulse);
     }
