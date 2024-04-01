@@ -16,10 +16,10 @@ public class EnemySpawnAudio : MonoBehaviour
 
     private void Update()
     {
-        if (enemySpawner.getTimer() <= 0 && soundPlayed == false)
+        /*if (enemySpawner.getTimer() <= 0 && soundPlayed == false)
         {
             audioSource.Play();
             soundPlayed = true;
-        }
+        }*/
     }
 }

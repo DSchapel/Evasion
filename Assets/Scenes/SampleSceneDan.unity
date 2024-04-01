@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoText: {fileID: 316175044}
-  weapon: {fileID: 0}
+  weapon: {fileID: 1491838652}
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,6 +1354,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8396600445661958493, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
   m_PrefabInstance: {fileID: 1491838650}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1491838652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3240874019706292602, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+  m_PrefabInstance: {fileID: 1491838650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d7c9a86f15946408959899891f44e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1584570891
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,6 +5943,11 @@ MonoBehaviour:
   cdBar: {fileID: 0}
   gotCD: 0
   max: 0
+--- !u!4 &1696654997 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4272086227548311906, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+  m_PrefabInstance: {fileID: 1491838650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877656093
 GameObject:
   m_ObjectHideFlags: 0
@@ -6360,7 +6376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 7791626128986071195, guid: a5164ac7c52046840951f50574fe87ef, type: 3}
-  firePoint: {fileID: 0}
+  firePoint: {fileID: 1696654997}
   ability: 0
   timeSinceLastShot: 50
   cooldown: 0
