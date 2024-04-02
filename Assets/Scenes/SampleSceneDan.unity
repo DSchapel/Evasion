@@ -1195,6 +1195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Witch
       objectReference: {fileID: 0}
+    - target: {fileID: 7815940827941337067, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d0f28d4acacb1845b252bf61b058f6d, type: 3}
     - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -1234,10 +1238,6 @@ PrefabInstance:
     - target: {fileID: 7917879839925382561, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211385693721140958, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
-      propertyPath: fireRate
-      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1622,7 +1622,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -999
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -6559,7 +6559,7 @@ Transform:
   m_GameObject: {fileID: 1980715603}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
