@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawnManager : MonoBehaviour {
 	[Header("Enemy Spawn Info")]
@@ -13,6 +12,8 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	[Header("Wave Info")]
 	public float timeBetweenWaves;
+	public int wavesBetweenUpgrades;
+	public float timeForUpgrade;
 
 	private Queue<Enemy> pendingSpawns;
 	private List<GameObject> aliveEnemies;
@@ -67,7 +68,18 @@ public class EnemySpawnManager : MonoBehaviour {
 		ChooseEnemies();
 
 		wave += 1;
-		nextWaveTimer = timeBetweenWaves;
+
+		if (wave % wavesBetweenUpgrades == 0) {
+			// TODO: i don't remember the consensus on this,
+			// but we may want to pause wave spawning here
+			// until the player picks an upgrade?
+			//
+			// either way we can't really do that until the
+			// upgrade choosing system is done..
+			TimeForUpgrade.Invoke();
+			nextWaveTimer = timeForUpgrade;
+		} else {
+		}
 	}
 
 	private void SpawnEnemy(Enemy enemy) {
@@ -157,6 +169,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	public int Wave { get { return wave; }}
+	public UnityEvent TimeForUpgrade;
 
 	public void AddEnemy(GameObject enemy) {
 		aliveEnemies.Add(enemy);

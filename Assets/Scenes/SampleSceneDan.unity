@@ -6845,6 +6845,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 039cc8eb1dcc9024c984233441d805e7, type: 2}
   - {fileID: 11400000, guid: 41bb670c85a9a6040976f3aac44ca980, type: 2}
   timeBetweenWaves: 0
+  wavesBetweenUpgrades: 5
+  timeForUpgrade: 5
+  TimeForUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
