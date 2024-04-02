@@ -15,6 +15,9 @@ public class EnemySpawnManager : MonoBehaviour {
 	public int wavesBetweenUpgrades;
 	public float timeForUpgrade;
 
+	[Header("Events")]
+	public UnityEvent TimeForUpgrade;
+
 	private Queue<Enemy> pendingSpawns;
 	private List<GameObject> aliveEnemies;
 
@@ -24,6 +27,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	private float totalPossibleWeight;
 
 	void Start() {
+		TimeForUpgrade = new();
 		pendingSpawns = new();
 		aliveEnemies = new();
 
@@ -169,7 +173,6 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	public int Wave { get { return wave; }}
-	public UnityEvent TimeForUpgrade;
 
 	public void AddEnemy(GameObject enemy) {
 		aliveEnemies.Add(enemy);
