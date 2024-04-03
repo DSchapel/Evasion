@@ -8,7 +8,7 @@ public class RedWitchChase : MonoBehaviour
     public float speed;
     private float distance;
     private float personalSpeed;
-    public float distanceToShoot;
+    public float distanceToRun;
     private float timeToFire;
     public float fireRate;
     public GameObject bullet;
@@ -55,24 +55,17 @@ public class RedWitchChase : MonoBehaviour
         }
 
         Shoot();
-        if (distance>distanceToShoot){
-             enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach(GameObject go in enemy){
-            if (go!=gameObject){
-                float distanceBetween = Vector3.Distance(go.transform.position, this.transform.position);
-                if (distanceBetween<spaceBetween){
-                    Vector2 directionee = (transform.position - go.transform.position);
-                    
-                    transform.Translate(directionee*Time.deltaTime);
-                } 
-            }
+        if (distance>distanceToRun){
+                //don't run
         }
-        transform.position = Vector2.MoveTowards(transform.position, target.position,personalSpeed*Time.deltaTime);
+        else{
+             transform.position = Vector2.MoveTowards(transform.position, transform.position-target.position,personalSpeed*Time.deltaTime);
         }
     }
 
 
 private void Shoot() {
+
     if (timeToFire<=0){
         Vector2 direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = direction;

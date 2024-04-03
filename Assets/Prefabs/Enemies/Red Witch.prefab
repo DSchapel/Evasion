@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2216f716fede66499d5df95807de247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  distanceToShoot: 3.25
+  speed: 1
+  distanceToRun: 3
   fireRate: 3
   bullet: {fileID: 3828990584275499427, guid: d43314ff73e8da24783d13498acf6dcd, type: 3}
   shouldRotate: 0
