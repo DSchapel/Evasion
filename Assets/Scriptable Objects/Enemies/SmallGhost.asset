@@ -18,5 +18,5 @@ MonoBehaviour:
   power: 1
   weight: 1
   limit: 1
-  maxHealth: 30
+  maxHealth: 20
   damage: 10
