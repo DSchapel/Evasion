@@ -5,9 +5,10 @@ using UnityEngine;
         public int curHealth = 0;
         public int maxHealth = 100;
         public HealthBar healthBar;
-
+        private AudioSource audioSource;
         void Start(){
             curHealth = maxHealth;
+            audioSource = GetComponent<AudioSource>();
         }
         void Update(){
             if( Input.GetKeyDown( KeyCode.B )){DamagePlayer(10);}
@@ -27,6 +28,7 @@ using UnityEngine;
             curHealth+=heal;
         healthBar.SetHealth(curHealth);
             }
+            audioSource.Play();
         }
 
 
