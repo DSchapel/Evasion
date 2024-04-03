@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] UpgradeData upgradeData;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    Weapon gun = FindAnyObjectByType<Weapon>();
+    WeaponData data = gun.getData();
+    data.damage  += upgradeData.upgradeDamage;
+    data.maxAmmo += upgradeData.maxAmmo;
+    data.fireRate += upgradeData.fireRate;
     }
 }
