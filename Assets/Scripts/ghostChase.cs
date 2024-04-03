@@ -31,11 +31,16 @@ public class ghostChase : MonoBehaviour
 enemy = GameObject.FindGameObjectsWithTag("Enemy");
         foreach(GameObject go in enemy){
             if (go!=gameObject){
+                var space = spaceBetween * 2.0f;
+
                 float distanceBetween = Vector3.Distance(go.transform.position, this.transform.position);
-                if (distanceBetween<spaceBetween){
-                    Vector2 directionee = (transform.position - go.transform.position);
+                if (distanceBetween<space){
+                    Vector2 directionee = (transform.position - go.transform.position).normalized;
+
+                    var strength = space - distanceBetween;
+                    strength *= strength;
                     
-                    transform.Translate(directionee*Time.deltaTime);
+                    transform.Translate(directionee * strength * Time.deltaTime);
                 } 
             }
         }
