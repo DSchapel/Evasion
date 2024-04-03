@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bc8791222a63846912025fbad3b08b, type: 3}
+  m_Name: BlueWitch
+  m_EditorClassIdentifier: 
+  name: Witch
+  prefab: {fileID: 4074880058999400219, guid: dcbe0f73dbb9e77479f1e4a48740fe79, type: 3}
+  spawner: {fileID: 2330862176275760102, guid: 6583fcc98883e2d91aa57afd81e5b8f1, type: 3}
+  power: 8
+  weight: 1.8
+  limit: 3
+  maxHealth: 100
+  damage: 30

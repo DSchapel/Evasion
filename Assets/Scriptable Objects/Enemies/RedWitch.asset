@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06bc8791222a63846912025fbad3b08b, type: 3}
   m_Name: RedWitch
   m_EditorClassIdentifier: 
-  name: 
+  name: Red Witch
   prefab: {fileID: 6179751584680357764, guid: 6af51dc0e794dc942a21c6454cdff348, type: 3}
   spawner: {fileID: 1492157399628789522, guid: ef98e95b9aba71d2598cc8cb3089a577, type: 3}
-  power: 2
-  weight: 2
+  power: 6
+  weight: 1.9
   limit: 2
   maxHealth: 70
   damage: 20

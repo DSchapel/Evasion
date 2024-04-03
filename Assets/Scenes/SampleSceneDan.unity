@@ -6682,6 +6682,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e5408f5406e4284b9fb08a68bf81460, type: 2}
   - {fileID: 11400000, guid: 039cc8eb1dcc9024c984233441d805e7, type: 2}
   - {fileID: 11400000, guid: 41bb670c85a9a6040976f3aac44ca980, type: 2}
+  - {fileID: 11400000, guid: 0259c67f8aee6ad0bafec63dfdc26f71, type: 2}
+  - {fileID: 11400000, guid: 50b215a27ea68d24bb9c171a6e27a82f, type: 2}
   timeBetweenWaves: 0
   wavesBetweenUpgrades: 5
   timeForUpgrade: 5
