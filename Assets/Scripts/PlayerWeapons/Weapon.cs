@@ -107,7 +107,10 @@ public class Weapon : MonoBehaviour
     {
         return data;
     }
-
+    public void setData(WeaponData newData)
+    {
+        data = newData;
+    }
     public void playShotAudio()
     {
         audioSource.Play();
