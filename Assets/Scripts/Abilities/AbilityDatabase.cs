@@ -51,6 +51,10 @@ public class AbilityDatabase : MonoBehaviour
             cooldown = 10f;
             buffTime = 10f;
         }
+        if(ability == 2)
+        {
+            cooldown = 3f;
+        }
     }
 
     public void Ability()
@@ -71,6 +75,13 @@ public class AbilityDatabase : MonoBehaviour
                 {
                     SpectralEnhancement();
                 }
+            }
+        }
+        if(ability == 2)
+        {
+            if(timeSinceLastShot < cooldown)
+            {
+                SwordOfExorcism();
             }
         }
     }
@@ -103,6 +114,11 @@ public class AbilityDatabase : MonoBehaviour
         timeSinceLastShot = 0;
         weapon.currentAmmo = data.maxAmmo;
         data.damage /= 1.3f;
+    }
+
+    public void SwordOfExorcism()
+    {
+
     }
 
     public void checkHit(Collider2D col, float damage)
