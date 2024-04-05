@@ -25,7 +25,6 @@ public class AbilityCDScript : MonoBehaviour
             gotCD = true;
         }
         int cdValue = (int)(anthony.getShotTime() * 100);
-        print(cdValue);
         cdBar.value = cdValue;
     }
 }

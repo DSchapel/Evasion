@@ -24,11 +24,17 @@ public class EnemySpawner : MonoBehaviour {
         Spawned
     }
 
+    private GameObject player;
+    private Switchable playerSwitchable;
+
     private ParticleInfo[] infos;
     private State state;
     private float timer;
 
     void Start() {
+        player = GameObject.FindWithTag("Player");
+        playerSwitchable = player.GetComponent<Switchable>();
+
         infos = particles.Select(r => new ParticleInfo(r)).ToArray();
         state = State.Spawning;
         timer = timeUntilSpawn;
@@ -60,6 +66,11 @@ public class EnemySpawner : MonoBehaviour {
         if (timer <= 0.0f) {
             var obj = Instantiate(enemy.prefab);
             obj.transform.position = transform.position;
+
+            var switchable = obj.GetComponent<Switchable>();
+            if (switchable != null) {
+                switchable.side = playerSwitchable.side;
+            }
 
             manager.AddEnemy(obj);
             state = State.Spawned;
@@ -100,5 +111,9 @@ public class EnemySpawner : MonoBehaviour {
             info.render.sprite = sprite;
             info.render.color = new(1.0f, 1.0f, 1.0f, 0.5f - timer);
         }
+    }
+
+    public float getTimer() {
+        return timer;
     }
 }
