@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class playerControl : MonoBehaviour
     public float dashingPower2 = 10f;
     public float dashingTime2 = 0.3f;
     public float dashingCooldown = 1f;
+    public LayerMask collisionMask;
     private int dashtype = 3;
     public Health healthval;
     public Weapon weaponinfo;
@@ -27,6 +29,8 @@ public class playerControl : MonoBehaviour
     //public int curHealth;
     //[SerializeField] private TrailRenderer tr;
     Rigidbody2D rb;
+    private Collider2D col;
+    private ContactFilter2D filter;
 
 
 
@@ -34,6 +38,7 @@ public class playerControl : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         //curHealth = GameObject.FindGameObjectWithTag("curHealth").GetComponent<int>();
         //data= GameObject.FindGameObjectWithTag("data").GetComponent<WeaponData>();
         //currentAmmo = GameObject.FindGameObjectWithTag("currentAmmo").GetComponent<int>();
@@ -42,6 +47,9 @@ public class playerControl : MonoBehaviour
         //BoxCollider boxCollider = player.GetComponent<BoxCollider>();
 
         canDash = true;
+
+        filter = new();
+        filter.SetLayerMask(collisionMask);
     }
 
     // Update is called once per frame
@@ -75,6 +83,78 @@ public class playerControl : MonoBehaviour
             transform.position += (currspeed * Time.deltaTime);
 
 
+        var results = new List<Collider2D>();
+        Physics2D.OverlapBox((Vector2) col.bounds.center, (Vector2) col.bounds.extents * 2.0f, 0.0f, filter, results);
+
+        foreach (var other in results) {
+            var obj = other.gameObject;
+        
+            var wall = obj.GetComponent<Wall>();
+            if (wall == null) {
+                return;
+            }
+
+            var bounds = col.bounds;
+            var wallBounds = other.bounds;
+
+            // magical number soup chosen
+            // through trial and error
+            // (if anyone can figure out why
+            //  this needs to be here please
+            //  fix it i am begging you)
+            var extraSpace = 0.0201f;
+
+            switch (wall.pushDirection) {
+                case Wall.PushDirection.North:
+                    transform.position = new(
+                        transform.position.x,
+                        wallBounds.max.y + bounds.extents.y + extraSpace,
+                        transform.position.z
+                    );
+                    currspeed = new(
+                        currspeed.x,
+                        0.0f,
+                        currspeed.z
+                    );
+                    break;
+                case Wall.PushDirection.South:
+                    transform.position = new(
+                        transform.position.x,
+                        wallBounds.min.y - bounds.extents.y - extraSpace,
+                        transform.position.z
+                    );
+                    currspeed = new(
+                        currspeed.x,
+                        0.0f,
+                        currspeed.z
+                    );
+                    break;
+                case Wall.PushDirection.East:
+                    transform.position = new(
+                        wallBounds.max.x + bounds.extents.x + extraSpace,
+                        transform.position.y,
+                        transform.position.z
+                    );
+                    currspeed = new(
+                        0.0f,
+                        currspeed.y,
+                        currspeed.z
+                    );
+                    break;
+                case Wall.PushDirection.West:
+                    transform.position = new(
+                        wallBounds.min.x - bounds.extents.x - extraSpace,
+                        transform.position.y,
+                        transform.position.z
+                    );
+                    currspeed = new(
+                        0.0f,
+                        currspeed.y,
+                        currspeed.z
+                    );
+                    break;
+            }
+        }
     }
     private IEnumerator TeleportDash()
     {
