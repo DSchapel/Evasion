@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1546141403956262745}
   - component: {fileID: 3329971714861242652}
   - component: {fileID: 2685967018322921284}
+  - component: {fileID: -4886444940767788494}
   m_Layer: 0
   m_Name: GooBullet
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.022, y: 0.089, z: 0}
-  m_LocalScale: {x: 4.0885725, y: 4.0885725, z: 0.55175287}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b682ca5d83262f931ab63aafdc4e45d9, type: 3}
+  m_Sprite: {fileID: -264588463, guid: 7f2d7e7928787fed79764fc6398e5399, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -191,3 +192,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 88844275163df6748b17f6e99c9ba278, type: 2}
   currentHealth: 30
+--- !u!114 &-4886444940767788494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735394209296175330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfcd36a32c74657dbee34641314539b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnFrame: {fileID: -305117489, guid: 7f2d7e7928787fed79764fc6398e5399, type: 3}
+  frames:
+  - {fileID: 1357002532, guid: 7f2d7e7928787fed79764fc6398e5399, type: 3}
+  - {fileID: -264588463, guid: 7f2d7e7928787fed79764fc6398e5399, type: 3}
+  - {fileID: 691884071, guid: 7f2d7e7928787fed79764fc6398e5399, type: 3}
