@@ -5,6 +5,7 @@ using UnityEngine;
         public int curHealth = 0;
         public int maxHealth = 100;
         public HealthBar healthBar;
+        private int healthreset;
         private AudioSource audioSource;
         void Start(){
             curHealth = maxHealth;
@@ -31,6 +32,14 @@ using UnityEngine;
             audioSource.Play();
         }
 
+        public void Healthholder() {
+        healthreset=curHealth;
+        }
+        
+        public void Healthreset() {
+        curHealth=healthreset;
+        healthBar.SetHealth(curHealth);
+        }
 
 
-    }
+        }

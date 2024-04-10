@@ -45,6 +45,13 @@ public class Weapon : MonoBehaviour
         data.reloading = false;
     }
 
+    public void instantReload()
+    {
+        data.reloading = true;
+        currentAmmo = data.maxAmmo;
+        data.reloading = false;
+    }
+
     public void Shoot()
     {
         if (currentAmmo > 0)
