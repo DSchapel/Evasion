@@ -14,15 +14,15 @@ public class playerControl : MonoBehaviour
     public bool isDashing;
     public float dashingPower = 5f;
     public float dashingTime = 0.1f;
-    public float dashingPower2 = 10f;
+    public float dashingPower2 = 2f;
     public float dashingTime2 = 0.3f;
     public float dashingCooldown = 1f;
-    private int dashtype = 3;
+    public int dashtype = 3;
     public Health healthval;
     public Weapon weaponinfo;
-    public int currentAmmo;
     //public int currentAmmo;
-    public int healthreset;
+    //public int currentAmmo;
+    //public int healthreset;
     //[SerializeField] WeaponData data;
     //public int curHealth;
     //[SerializeField] private TrailRenderer tr;
@@ -33,6 +33,10 @@ public class playerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //weaponinfo= GetComponent<Weapon.cs>();
+        //healthval = GetComponent<Health.cs>();
+        weaponinfo= GameObject.FindObjectOfType(typeof(Weapon)) as Weapon;
+        healthval = GameObject.FindObjectOfType(typeof(Health)) as Health;
         rb = GetComponent<Rigidbody2D>();
         //curHealth = GameObject.FindGameObjectWithTag("curHealth").GetComponent<int>();
         //data= GameObject.FindGameObjectWithTag("data").GetComponent<WeaponData>();
@@ -53,7 +57,7 @@ public class playerControl : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashtype == 3)
         {
-            StartCoroutine(ReloadDash());
+            StartCoroutine(TeleportDash());
         }
         
             float speedX = Input.GetAxisRaw("Horizontal");
@@ -84,6 +88,7 @@ public class playerControl : MonoBehaviour
         canDash = false;
         //healthreset = curHealth;
         isDashing = true;
+        healthval.Healthholder();
         //boxCollider.enabled = false;
         //rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * (dashingPower), Input.GetAxisRaw("Vertical") * (dashingPower), 0);
         transform.position += playerinput.normalized * (dashingPower);
@@ -91,6 +96,7 @@ public class playerControl : MonoBehaviour
         //rb.velocity = playerinput.normalized * (dashingPower);
         yield return new WaitForSeconds(dashingTime);
         //curHealth = healthreset;
+        healthval.Healthreset();
         isDashing = false;
         //boxCollider.enabled = true;
         //tr.emitting = false;
@@ -100,14 +106,14 @@ public class playerControl : MonoBehaviour
 
 private IEnumerator DefaultDash()
 {
-    float speedX = Input.GetAxisRaw("Horizontal");
-    float speedY = Input.GetAxisRaw("Vertical");
+    speedX = Input.GetAxisRaw("Horizontal");
+    speedY = Input.GetAxisRaw("Vertical");
     Vector3 playerinput = new Vector3(speedX, speedY, 0);
     canDash = false;
     isDashing = true;
     //boxCollider.enabled = false;
-    rb.velocity = new Vector3(transform.position.x * dashingPower2, transform.position.y * dashingPower2, 0);
-    rb.velocity += rb.velocity * (dashingPower2);
+    rb.velocity = playerinput*dashingPower2;
+    //rb.velocity = rb.velocity * ;
     //transform.position += playerinput.normalized * ( * dashingPower2);
     //tr.emitting = true;
     //transform.position += playerinput.normalized * (dashingPower2);
@@ -127,6 +133,7 @@ private IEnumerator DefaultDash()
         canDash = false;
         //healthreset= curHealth;
         isDashing = true;
+        healthval.Healthholder();
         //rb.detectCollisions = false;
         //boxCollider.enabled = false;
         //rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * (dashingPower), Input.GetAxisRaw("Vertical") * (dashingPower), 0);
@@ -136,6 +143,7 @@ private IEnumerator DefaultDash()
         yield return new WaitForSeconds(dashingTime2);
         //rb.detectCollisions = true;
         //curHealth = healthreset;
+        healthval.Healthreset();
         isDashing = false;
         //boxCollider.enabled = true;
         //tr.emitting = false;
@@ -155,7 +163,7 @@ private IEnumerator ReloadDash()
         //transform.position += playerinput.normalized * ( * dashingPower2);
         //tr.emitting = true;
         transform.position += playerinput.normalized * (dashingPower2);
-        weaponinfo.currentAmmo = weaponinfo.getMaxAmmo();
+        weaponinfo.instantReload();
         //currentAmmo = getMaxAmmo();
         yield return new WaitForSeconds(dashingTime2);
         isDashing = false;
