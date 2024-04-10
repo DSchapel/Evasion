@@ -35,6 +35,8 @@ void Update()
                 {
                     Weapon old = FindObjectOfType<Weapon>();
                     old.setData(swapWeapon.data);
+                    old.setCurrAmmo();
+                    
                 }
             }
         }

@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8a6ac083c7fe940811060d6d8d4e69, type: 3}
+  m_Name: RifleSwap
+  m_EditorClassIdentifier: 
+  name: RifleSwap
+  data: {fileID: 11400000, guid: f4dae3f6343a77440be1b0f638c32663, type: 2}

@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3df46b20da5b434f8d21df48df74178, type: 3}
-  m_Name: Gun
+  m_Script: {fileID: 11500000, guid: 8c8a6ac083c7fe940811060d6d8d4e69, type: 3}
+  m_Name: ShotgunSwap
   m_EditorClassIdentifier: 
-  name: Gun
-  damage: 50
-  maxDistance: 50
-  maxAmmo: 50
-  fireRate: 60
-  reloadTime: 0.5
-  reloading: 0
+  name: ShotgunSwap
+  data: {fileID: 11400000, guid: 50e1b2d629333cb4fa40fe80a9628ca5, type: 2}
