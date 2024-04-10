@@ -33,6 +33,7 @@ public class Swappable : MonoBehaviour
                     {
                         AbilityDatabase abilities = hit.GetComponent<AbilityDatabase>();
                         abilities.AbilitySwitch(data.abilityNum);
+                        Destroy(gameObject);
                     }
                 }
             }

@@ -7,10 +7,13 @@ public class bulletDirection : MonoBehaviour
     public float speed;
     private Transform target;
     private float distance;
+    private Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        direction = transform.up;
+        transform.rotation = Quaternion.identity;
     }
 
     // Update is called once per frame
@@ -20,7 +23,7 @@ public class bulletDirection : MonoBehaviour
         if (healthController.currentHealth<=0){
         Destroy(gameObject);
         }
-        transform.Translate(Vector2.up*speed*Time.deltaTime);
+        transform.position += direction * speed * Time.deltaTime;
         distance = Vector2.Distance(transform.position, target.position); 
         if (distance>10){
             Destroy(this.gameObject,2f);
