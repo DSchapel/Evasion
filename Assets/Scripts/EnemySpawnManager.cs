@@ -83,6 +83,10 @@ public class EnemySpawnManager : MonoBehaviour {
 		}
 	}
 
+	private float PowerFunction(float x) {
+		return (x + Mathf.Pow(x, 1.25f) + Mathf.Pow(1.1f, x)) / 3.0f;
+	}
+
 	private void SpawnEnemy(Enemy enemy) {
 		var spawnPos = Vector3.zero;
 		while (true) {
@@ -110,10 +114,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	private void ChooseEnemies() {
-		// TODO: this is probably a *horrible* power
-		// function, we'll need to properly test this
-		// and pick a nice one
-		var power = (float) wave;
+		var power = PowerFunction((float) wave);
 
 		var spawnsLeft = spawns.Select(e => e.limit).ToArray();
 
