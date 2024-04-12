@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class EnemySpawnManager : MonoBehaviour {
 	[Header("Enemy Spawn Info")]
-	public float minSpawnRange;
-	public float maxSpawnRange;
+	public float safeRange;
 	public float timeBetweenSpawns;
+	public Collider2D spawnRegion;
 	public Enemy[] spawns;
 
 	[Header("Wave Info")]
@@ -24,7 +25,6 @@ public class EnemySpawnManager : MonoBehaviour {
 	private int wave;
 	private float nextSpawnTimer;
 	private float nextWaveTimer;
-	private float totalPossibleWeight;
 
 	void Start() {
 		TimeForUpgrade = new();
@@ -35,10 +35,7 @@ public class EnemySpawnManager : MonoBehaviour {
 		nextSpawnTimer = 0.0f;
 		nextWaveTimer = timeBetweenWaves;
 
-		totalPossibleWeight = 0.0f;
-		foreach (var enemy in spawns) {
-			totalPossibleWeight += enemy.weight;
-		}	
+		ChooseEnemies();
 	}
 
 	void Update() {
@@ -87,14 +84,21 @@ public class EnemySpawnManager : MonoBehaviour {
 	}
 
 	private void SpawnEnemy(Enemy enemy) {
-		var vec = (Vector3) UnityEngine.Random.insideUnitCircle;
-		var unit = vec.normalized;
-
-		var range = maxSpawnRange - minSpawnRange;
-		var offset = unit * minSpawnRange + vec * range;
+		var spawnPos = Vector3.zero;
+		while (true) {
+			spawnPos = new(
+				Random.Range(spawnRegion.bounds.min.x, spawnRegion.bounds.max.x),
+				Random.Range(spawnRegion.bounds.max.y, spawnRegion.bounds.max.y),
+				0
+			);
+			
+			if ((spawnPos - transform.position).magnitude > safeRange) {
+				break;
+			}
+		}
 		
 		var obj = Instantiate(enemy.spawner ?? enemy.prefab);
-		obj.transform.position = transform.position + offset;
+		obj.transform.position = spawnPos;
 		
 		if (enemy.spawner != null) {
 			var component = obj.GetComponent<EnemySpawner>();
@@ -112,7 +116,6 @@ public class EnemySpawnManager : MonoBehaviour {
 		var power = (float) wave;
 
 		var spawnsLeft = spawns.Select(e => e.limit).ToArray();
-		var totalWeight = totalPossibleWeight;
 
 		bool canSpawnEnemy(int index) {
 			Enemy enemy = spawns[index];
@@ -128,14 +131,20 @@ public class EnemySpawnManager : MonoBehaviour {
 			return true;
 		}
 
+		var totalSpawnableEnemies = new List<int>();
+		var totalSpawnableWeight = 0.0f;
+		for (int i = 0; i < spawns.Length; i++) {
+			if (canSpawnEnemy(i)) {
+				totalSpawnableEnemies.Add(i);
+				totalSpawnableWeight += spawns[i].weight;
+			}
+		}
+		var spawnableEnemies = new List<int>(totalSpawnableEnemies);
+
 		int chooseEnemy() {
-			var weight = UnityEngine.Random.Range(0.0f, totalWeight);
+			var weight = Random.Range(0.0f, totalSpawnableWeight);
 
-			for (var i = 0; i < spawns.Length; i++) {
-				if (!canSpawnEnemy(i)) {
-					continue;
-				}
-
+			foreach (var i in spawnableEnemies) {
 				weight -= spawns[i].weight;
 				if (weight > 0) {
 					continue;
@@ -144,6 +153,9 @@ public class EnemySpawnManager : MonoBehaviour {
 				return i;
 			}
 
+			if (spawnableEnemies.Count != 0) {
+				Debug.Log("Did not pick enemy even though one could spawn!");
+			}
 			return -1;
 		}
 
@@ -151,7 +163,7 @@ public class EnemySpawnManager : MonoBehaviour {
 			var index = chooseEnemy();
 			if (index < 0) {
 				spawnsLeft = spawns.Select(e => e.limit).ToArray();
-				totalWeight = totalPossibleWeight;
+				spawnableEnemies = new List<int>(totalSpawnableEnemies);
 
 				index = chooseEnemy();
 				if (index < 0) {
@@ -165,7 +177,8 @@ public class EnemySpawnManager : MonoBehaviour {
 			spawnsLeft[index] -= 1;
 
 			if (!canSpawnEnemy(index)) {
-				totalWeight -= enemy.weight;
+				spawnableEnemies.Remove(index);
+				totalSpawnableWeight -= enemy.weight;
 			}
 
 			pendingSpawns.Enqueue(enemy);
