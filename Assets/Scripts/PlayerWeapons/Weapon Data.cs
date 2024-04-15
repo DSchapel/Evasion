@@ -17,6 +17,8 @@ public class WeaponData: ScriptableObject
     public int maxAmmo;
     public float fireRate;
     public float reloadTime;
+    [Header ("Appearance")]
+    public Sprite sprite;
     [HideInInspector]
     public bool reloading;
 }
