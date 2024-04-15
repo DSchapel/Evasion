@@ -19,4 +19,5 @@ MonoBehaviour:
   fireRate: 35
   reloadTime: 0.5
   sprite: {fileID: 21300000, guid: 886726df047da1f43ac7089306510d16, type: 3}
+  bulletPrefab: {fileID: 6164311775815570343, guid: 4d58ef752cd752ecfbf331d5108474bd, type: 3}
   reloading: 0

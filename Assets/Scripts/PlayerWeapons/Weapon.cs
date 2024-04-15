@@ -139,6 +139,7 @@ public class Weapon : MonoBehaviour
     }
     public void setData(WeaponData newData)
     {
+        bulletPrefab = newData.bulletPrefab;
         sprite.sprite = newData.sprite;
         data = newData;
     }

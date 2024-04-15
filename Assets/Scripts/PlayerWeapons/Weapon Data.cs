@@ -19,6 +19,8 @@ public class WeaponData: ScriptableObject
     public float reloadTime;
     [Header ("Appearance")]
     public Sprite sprite;
+    public GameObject bulletPrefab;
     [HideInInspector]
     public bool reloading;
+
 }
