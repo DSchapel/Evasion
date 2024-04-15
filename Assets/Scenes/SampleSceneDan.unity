@@ -33828,6 +33828,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 3240874019706292602, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e31c87b7e1f9e841a68cbb9b5f4bb25, type: 2}
+    - target: {fileID: 3240874019706292602, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
       propertyPath: sprite
       value: 
       objectReference: {fileID: 412602622}
@@ -33843,6 +33847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle
       objectReference: {fileID: 0}
+    - target: {fileID: 8391751141249454731, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 714cf9ac883af78a1aad7dcc181b7d48, type: 3}
     - target: {fileID: 8396600445661958493, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
