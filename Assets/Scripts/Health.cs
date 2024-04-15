@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
     public class Health : MonoBehaviour {
         public int curHealth = 0;
         public int maxHealth = 100;
@@ -19,6 +20,8 @@ using UnityEngine;
         healthBar.SetHealth( curHealth );
         if (curHealth<=0){
             print("this is when player died, the end");
+            SceneManager.LoadScene ("Death Scene");
+           
         }
         }
         public void HealPlayer(int heal){
