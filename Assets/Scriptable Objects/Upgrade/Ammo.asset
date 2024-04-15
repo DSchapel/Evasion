@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243f211436e635244b2e68c41b2d905b, type: 3}
   m_Name: Ammo
   m_EditorClassIdentifier: 
-  name: 
+  name: Ammo
   upgradeDamage: 0
   maxAmmo: 10
   fireRate: 0

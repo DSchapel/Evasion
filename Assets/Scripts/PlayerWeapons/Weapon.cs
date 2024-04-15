@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     public float timeSinceLastShot = 50f;
     public int currentAmmo;
     Vector2 mousePos;
+    public SpriteRenderer sprite;
 
     void Start()
     {
@@ -106,7 +107,7 @@ public class Weapon : MonoBehaviour
                 // Instantiate the bullet using our new rotation
                 GameObject bullet = Instantiate(bulletPrefab, place , bulletRotation);
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+                rb.AddForce((firePoint.up) * bulletForce, ForceMode2D.Impulse);
             }
         }
     }
@@ -138,6 +139,7 @@ public class Weapon : MonoBehaviour
     }
     public void setData(WeaponData newData)
     {
+        sprite.sprite = newData.sprite;
         data = newData;
     }
     public void playShotAudio()

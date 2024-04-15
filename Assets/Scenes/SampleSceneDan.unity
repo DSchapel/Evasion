@@ -473,6 +473,11 @@ Transform:
   - {fileID: 1679961433}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &412602622 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8391751141249454731, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+  m_PrefabInstance: {fileID: 1491838650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &452149740
 GameObject:
   m_ObjectHideFlags: 0
@@ -33822,6 +33827,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3240874019706292602, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 412602622}
     - target: {fileID: 4272086227548311906, guid: 627c6b1c9987f8146a1dba671fc50c35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.24

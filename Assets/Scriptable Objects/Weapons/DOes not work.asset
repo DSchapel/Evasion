@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3df46b20da5b434f8d21df48df74178, type: 3}
   m_Name: DOes not work
   m_EditorClassIdentifier: 
-  name: Shotgun
+  name: gun
   damage: 50
   maxDistance: 20000
   maxAmmo: 6

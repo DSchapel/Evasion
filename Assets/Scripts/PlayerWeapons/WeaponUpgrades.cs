@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class WeaponDamage : MonoBehaviour
 {
-    [SerializeField] UpgradeData upgradeData;
-    void Start()
+    
+    void upgrade(UpgradeData upgradeData)
     {
     Weapon gun = FindAnyObjectByType<Weapon>();
     WeaponData data = gun.getData();
