@@ -173,11 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  distanceToRun: 3
+  distanceToRun: 4
   fireRate: 3
   bullet: {fileID: 3828990584275499427, guid: d43314ff73e8da24783d13498acf6dcd, type: 3}
   shouldRotate: 0
-  spaceBetween: 0.5
 --- !u!114 &7693854972901750043
 MonoBehaviour:
   m_ObjectHideFlags: 0
