@@ -82,6 +82,8 @@ public class Weapon : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = rotation;
+
+        sprite.flipY = lookDir.x < 0;
     }
 
     private void OnGunShot()
