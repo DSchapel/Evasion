@@ -48,6 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heal: 50
+  col: {x: 0, y: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
+  circle: {fileID: 0}
 --- !u!212 &5284827409176535182
 SpriteRenderer:
   m_ObjectHideFlags: 0
