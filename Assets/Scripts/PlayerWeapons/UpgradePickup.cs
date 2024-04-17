@@ -43,7 +43,7 @@ void Start()
 void Update()
 {
     col.x = circle.position.x; col.y = circle.position.y;
-    isCol = Physics2D.OverlapCircleNonAlloc(col, 100000f, results, layer);
+    isCol = Physics2D.OverlapCircleNonAlloc(col, .35f, results, layer);
     if (isCol > 0)
     {
         for(int i = 0; i < isCol; i++)
