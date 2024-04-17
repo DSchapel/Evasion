@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 751915230955285594}
   - component: {fileID: 1073269847226979107}
   - component: {fileID: 8831140353292812053}
+  - component: {fileID: 7337508478000490981}
   m_Layer: 0
   m_Name: Medical Zombie
   m_TagString: Enemy
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.8805, y: -0.981, z: -0.06405999}
-  m_LocalScale: {x: 1.6102332, y: 1.6102332, z: 1.6102332}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,7 +98,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,7 +119,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a04b46580e83c7428c67188111d1f9b, type: 3}
+  m_Sprite: {fileID: -700926579, guid: fa0c2403bd7d27f399a4dce62320eff4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,8 +162,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.64, y: 0.64}
+  m_Offset: {x: 0, y: -0.015}
+  m_Size: {x: 0.12, y: 0.28}
   m_Direction: 0
 --- !u!114 &1073269847226979107
 MonoBehaviour:
@@ -193,3 +194,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 41bb670c85a9a6040976f3aac44ca980, type: 2}
   currentHealth: 20
+--- !u!114 &7337508478000490981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035857536317624435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16cc8f858d23c33329ca64fe086c7381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: -700926579, guid: fa0c2403bd7d27f399a4dce62320eff4, type: 3}
+  - {fileID: 1133240568, guid: fa0c2403bd7d27f399a4dce62320eff4, type: 3}
+  - {fileID: -620914350, guid: fa0c2403bd7d27f399a4dce62320eff4, type: 3}
+  - {fileID: -1207245231, guid: fa0c2403bd7d27f399a4dce62320eff4, type: 3}
