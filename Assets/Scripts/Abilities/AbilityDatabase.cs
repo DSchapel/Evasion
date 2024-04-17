@@ -6,13 +6,16 @@ public class AbilityDatabase : MonoBehaviour
 {
     [SerializeField] GameObject ballPrefab;
     [SerializeField] Transform firePoint;
+    [SerializeField] GameObject swordPrefab;
+    [SerializeField] GameObject grenadePrefab;
+    [SerializeField] GameObject explosionPrefab;
+    
 
     public int ability;
     public float timeSinceLastShot = 50f;
     public float cooldown;
     public float buffTime;
     public bool isBuffed;
-    // Start is called before the first frame update
     public AbilityAudioScript abilityAudioScript0;
     public AbilityAudioScript abilityAudioScript1;
     void Start()
@@ -32,6 +35,7 @@ public class AbilityDatabase : MonoBehaviour
         {
             timeSinceLastShot += Time.deltaTime;
         }
+       
     }
 
     public void AbilitySwitch(int newNum)
@@ -54,6 +58,10 @@ public class AbilityDatabase : MonoBehaviour
         if(ability == 2)
         {
             cooldown = 3f;
+        }
+        if(ability == 3)
+        {
+            cooldown = 2.5f;
         }
     }
 
@@ -79,9 +87,16 @@ public class AbilityDatabase : MonoBehaviour
         }
         if(ability == 2)
         {
-            if(timeSinceLastShot < cooldown)
+            if(timeSinceLastShot >= cooldown)
             {
                 SwordOfExorcism();
+            }
+        }
+        if(ability == 3)
+        {
+            if(timeSinceLastShot >= cooldown)
+            {
+                EctoplasmGrenade();
             }
         }
     }
@@ -118,7 +133,27 @@ public class AbilityDatabase : MonoBehaviour
 
     public void SwordOfExorcism()
     {
+        /*
+        GameObject sword = Instantiate(swordPrefab, firePoint.position, new());
+        Rigidbody2D rb = sword.GetComponent<Rigidbody2D>();
+        Vector2 lookDir = mousePos - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle + 60f, Vector3.forward);
+        sword.transform.rotation = rotation;
+        */
+    }
 
+    public void EctoplasmGrenade()
+    {
+        GameObject nade = Instantiate(grenadePrefab, firePoint.position, new());
+        Rigidbody2D rb = nade.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * 1.5f, ForceMode2D.Impulse);
+    }
+
+    public void Explode(Transform location)
+    {
+        Debug.Log("Explode plz");
+        GameObject explosion = Instantiate(explosionPrefab, location.position, new());
     }
 
     public void checkHit(Collider2D col, float damage)

@@ -9,6 +9,8 @@ public class Swappable : MonoBehaviour
     public LayerMask layer;
     Collider2D[] results;
     public Transform circle;
+    public bool popup;
+    private bool playerHit;
 
     [SerializeField] private KeyCode swapKey;
     [SerializeField] ASwapData data;
@@ -16,6 +18,7 @@ public class Swappable : MonoBehaviour
     void Start()
     {
         results = new Collider2D[20];
+        popup = false;
     }
 
     void Update()
@@ -29,6 +32,8 @@ public class Swappable : MonoBehaviour
                 GameObject hit = results[i].gameObject;
                 if (hit.tag == ("Player")) 
                 {
+                    playerHit = true;
+                    popup = true;
                     if (Input.GetKeyDown(swapKey))
                     {
                         AbilityDatabase abilities = hit.GetComponent<AbilityDatabase>();
@@ -37,6 +42,11 @@ public class Swappable : MonoBehaviour
                     }
                 }
             }
+            if (!playerHit)
+            {
+                popup = false;
+            }
         }
+        playerHit = false;
     }
 }
