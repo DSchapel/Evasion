@@ -18,9 +18,12 @@ void upgrade(UpgradeData upgradeData)
     newData.fireRate = data.fireRate;
     newData.reloadTime = data.reloadTime;
     newData.reloading = false;
+    newData.sprite = data.sprite;
+    newData.bulletPrefab = data.bulletPrefab;
     newData.damage  += upgradeData.upgradeDamage;
     newData.maxAmmo += upgradeData.maxAmmo;
     newData.fireRate += upgradeData.fireRate;
+    newData.reloadTime += upgradeData.reloadTime;
     gun.setData(newData);
     gun.setCurrAmmo();
     }

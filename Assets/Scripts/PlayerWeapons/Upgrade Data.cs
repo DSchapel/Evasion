@@ -14,5 +14,7 @@ public class UpgradeData: ScriptableObject
     public int maxAmmo;
     
     public float fireRate;
+
+    public float reloadTime;
     
 }
