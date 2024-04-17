@@ -135,6 +135,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   circle: {fileID: 6983158859541050904}
+  popup: 0
   swapKey: 102
   data: {fileID: 11400000, guid: 55f26894f367f054ab1ac14edcc35d63, type: 2}
 --- !u!1 &7711600830781507088
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 5954488595971439647}
   data: {fileID: 11400000, guid: 55f26894f367f054ab1ac14edcc35d63, type: 2}
+  swapper: {fileID: 8136543619021654818}
 --- !u!1 &8616312085103723001
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6365538005279105294
 RectTransform:
   m_ObjectHideFlags: 0
