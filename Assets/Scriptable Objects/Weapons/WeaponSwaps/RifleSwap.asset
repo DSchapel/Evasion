@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8a6ac083c7fe940811060d6d8d4e69, type: 3}
   m_Name: RifleSwap
   m_EditorClassIdentifier: 
-  name: RifleSwap
+  name: Rifle
+  description: 
   data: {fileID: 11400000, guid: f4dae3f6343a77440be1b0f638c32663, type: 2}
+  sprite: {fileID: 0}

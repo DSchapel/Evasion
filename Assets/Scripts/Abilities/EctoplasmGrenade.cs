@@ -15,8 +15,14 @@ public class EctoplasmGrenade : MonoBehaviour
     public IEnumerator Explode()
     {
         yield return new WaitForSeconds(1.9f);
-        Debug.Log("start explosion?");
         AbilityDatabase master = FindObjectOfType<AbilityDatabase>();
         master.Explode(location);
+    }
+
+    public void accExplode()
+    {
+        AbilityDatabase master = FindObjectOfType<AbilityDatabase>();
+        master.Explode(location);
+        Destroy(gameObject);
     }
 }

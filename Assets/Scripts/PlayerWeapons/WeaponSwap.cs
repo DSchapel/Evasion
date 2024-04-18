@@ -8,6 +8,7 @@ public class WeaponSwap : ScriptableObject
 {
     [Header("Info")]
     public new string name;
+    public new string description;
     public WeaponData data;
     public SpriteRenderer sprite;
 }

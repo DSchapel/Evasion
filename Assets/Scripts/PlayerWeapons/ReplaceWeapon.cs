@@ -14,8 +14,10 @@ Collider2D[] results;
 public Transform circle;
 [SerializeField] private KeyCode swapKey;
 [SerializeField] private WeaponSwap swapWeapon;
+public bool popup;
+private bool playerHit;
 
-void Start()
+    void Start()
 {
     results = new Collider2D[20];
 }
@@ -31,15 +33,23 @@ void Update()
             GameObject hit = results[i].gameObject;
             if (hit.tag == ("Player")) 
             {
-                if (Input.GetKeyDown(swapKey))
+                    playerHit = true;
+                    popup = true;
+                    if (Input.GetKeyDown(swapKey))
                 {
                     Weapon old = FindObjectOfType<Weapon>();
                     old.setData(swapWeapon.data);
                     old.setCurrAmmo();
+                        Destroy(gameObject);
                 }
             }
         }
-    }
+            if (!playerHit)
+            {
+                popup = false;
+            }
+        }
+    playerHit = false;
 }
 
 }

@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += startReload;
         audioSource = GetComponent<AudioSource>();
+        data.reloading = false;
     }
 
     public bool canShoot() => !data.reloading && timeSinceLastShot > 1f / (data.fireRate / 60f);
@@ -96,14 +97,14 @@ public class Weapon : MonoBehaviour
         playShotAudio();
         }else
         {
-            int shots = 10;
+            int shots = 5;
             for (int i = 0; i < shots; i++)
             {
                 Vector3 sp = Camera.main.WorldToScreenPoint(firePoint.position);
                 Vector3 dir = (firePoint.position - sp).normalized;
             
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg -90;
-                float spread = Random.Range(-10, 10);
+                float spread = Random.Range(-35, 35);
                 Quaternion bulletRotation = Quaternion.Euler(new Vector3(0, 0, spread+angle+(i*20)));
                 Vector3 place = new Vector3(firePoint.position.x + .01f* i, firePoint.position.y + .01f * i, 0f);
                 // Instantiate the bullet using our new rotation
@@ -121,6 +122,11 @@ public class Weapon : MonoBehaviour
         {
             EnemyManager enemy = hit.GetComponent<EnemyManager>();
             enemy.takeDamage(data.damage);
+        }
+        if(hit.tag == "Grenade")
+        {
+            EctoplasmGrenade grenade = hit.GetComponent<EctoplasmGrenade>();
+            grenade.accExplode();
         }
     }
 

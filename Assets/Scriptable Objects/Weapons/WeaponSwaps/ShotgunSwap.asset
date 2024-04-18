@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8a6ac083c7fe940811060d6d8d4e69, type: 3}
   m_Name: ShotgunSwap
   m_EditorClassIdentifier: 
-  name: ShotgunSwap
+  name: Shotgun
+  description: 
   data: {fileID: 11400000, guid: 50e1b2d629333cb4fa40fe80a9628ca5, type: 2}
+  sprite: {fileID: 0}

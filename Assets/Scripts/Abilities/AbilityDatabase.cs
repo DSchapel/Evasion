@@ -61,7 +61,7 @@ public class AbilityDatabase : MonoBehaviour
         }
         if(ability == 3)
         {
-            cooldown = 2.5f;
+            cooldown = 5f;
         }
     }
 
@@ -148,6 +148,7 @@ public class AbilityDatabase : MonoBehaviour
         GameObject nade = Instantiate(grenadePrefab, firePoint.position, new());
         Rigidbody2D rb = nade.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * 1.5f, ForceMode2D.Impulse);
+        timeSinceLastShot = 0f;
     }
 
     public void Explode(Transform location)
