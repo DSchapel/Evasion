@@ -6,18 +6,18 @@ using UnityEngine;
 public class playerControl : MonoBehaviour
 {
 
-    public float movSpeed = 6.0f;
-    public float acceleration = 50.0f;
-    public float friction = 50.0f;
+    private float movSpeed = 3.5f;
+    private float acceleration = 50.0f;
+    private float friction = 50.0f;
     Vector3 currspeed;
     float speedX, speedY;
     private bool canDash = true;
-    public bool isDashing;
-    public float dashingPower = 3f;
-    public float dashingTime = 0.1f;
-    public float dashingPower2 = 2f;
-    public float dashingTime2 = 0.3f;
-    public float dashingCooldown = 2f;
+    private bool isDashing;
+    private float dashingPower = 3f;
+    private float dashingTime = 0.1f;
+    private float dashingPower2 = 10f;
+    private float dashingTime2 = 0.3f;
+    private float dashingCooldown = 2f;
     public LayerMask collisionMask;
     private int dashtype;
     public Health healthval;
