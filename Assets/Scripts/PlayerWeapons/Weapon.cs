@@ -150,6 +150,7 @@ public class Weapon : MonoBehaviour
         bulletPrefab = newData.bulletPrefab;
         sprite.sprite = newData.sprite;
         data = newData;
+        data.reloading = false;
     }
     public void playShotAudio()
     {
