@@ -8,6 +8,8 @@ public class UpgradeData: ScriptableObject
 {   
     [Header ("Info")]
     public new string name;
+
+    public new string description;
     [Header ("Upgrades")]
     public float upgradeDamage;
 
