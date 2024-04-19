@@ -311,7 +311,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.78, y: -0.7, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 395006398140342185}
@@ -359,8 +359,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.58585787, b: 0.11635202, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 714cf9ac883af78a1aad7dcc181b7d48, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -389,4 +389,5 @@ MonoBehaviour:
   circle: {fileID: 395006398140342185}
   swapKey: 102
   swapWeapon: {fileID: 11400000, guid: 9cea8e3bf1a829447968db34e20171d4, type: 2}
+  weaponDrop: {fileID: 0}
   popup: 0
