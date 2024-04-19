@@ -34914,7 +34914,7 @@ MonoBehaviour:
   timeBetweenWaves: 1
   wavesBetweenUpgrades: 5
   timeForUpgrade: 5
-  firstUpgradeWave: 0
+  firstUpgradeWave: 10
   TimeForUpgrade:
     m_PersistentCalls:
       m_Calls: []
