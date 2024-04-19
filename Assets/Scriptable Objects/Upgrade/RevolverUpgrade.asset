@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243f211436e635244b2e68c41b2d905b, type: 3}
   m_Name: RevolverUpgrade
   m_EditorClassIdentifier: 
-  name: RevolverUpgrade
+  name: Revolver Upgrade
+  description: Significantly increases revolver damage
   upgradeDamage: 200
   maxAmmo: 0
   fireRate: -10

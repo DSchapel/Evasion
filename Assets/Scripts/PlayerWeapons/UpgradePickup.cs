@@ -37,7 +37,10 @@ public Transform circle;
 [SerializeField] private UpgradeData upgradeData;
 public WeaponDrop weaponDrop;
 public UpgradesDrop upgradesDrop;
-void Start()
+    public bool popup;
+    private bool playerHit;
+
+    void Start()
 {
     results = new Collider2D[20];
 }
@@ -53,7 +56,9 @@ void Update()
             GameObject hit = results[i].gameObject;
             if (hit.tag == ("Player")) 
             {
-                if (Input.GetKeyDown(swapKey))
+                    playerHit = true;
+                    popup = true;
+                    if (Input.GetKeyDown(swapKey))
                 {
                     
                     upgrade(upgradeData);
@@ -69,7 +74,12 @@ void Update()
                 }
             }
         }
+            if (!playerHit)
+            {
+                popup = false;
+            }
+        }
+        playerHit = false;
     }
-}
 
 }
