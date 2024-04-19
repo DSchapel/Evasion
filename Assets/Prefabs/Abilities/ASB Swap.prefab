@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 992627998942485896}
-  data: {fileID: 11400000, guid: e783f1f0c1449b944887768c1a5c735f, type: 2}
-  swapper: {fileID: 0}
+  data: {fileID: 11400000, guid: c20f887793cc08648b30600efb0d6c34, type: 2}
+  swapper: {fileID: 6006457505097628946}
 --- !u!1 &4247219721782481290
 GameObject:
   m_ObjectHideFlags: 0

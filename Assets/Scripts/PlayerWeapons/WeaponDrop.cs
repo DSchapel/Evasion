@@ -1,8 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class WeaponDrop : MonoBehaviour
