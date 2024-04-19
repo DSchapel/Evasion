@@ -6,20 +6,20 @@ using UnityEngine;
 public class playerControl : MonoBehaviour
 {
 
-    public float movSpeed=6.0f;
+    public float movSpeed = 6.0f;
     public float acceleration = 50.0f;
-    public float friction=50.0f;
+    public float friction = 50.0f;
     Vector3 currspeed;
     float speedX, speedY;
     private bool canDash = true;
     public bool isDashing;
-    public float dashingPower = 5f;
+    public float dashingPower = 3f;
     public float dashingTime = 0.1f;
     public float dashingPower2 = 2f;
     public float dashingTime2 = 0.3f;
-    public float dashingCooldown = 1f;
+    public float dashingCooldown = 2f;
     public LayerMask collisionMask;
-    private int dashtype = 3;
+    private int dashtype;
     public Health healthval;
     public Weapon weaponinfo;
     //public int currentAmmo;
@@ -39,7 +39,7 @@ public class playerControl : MonoBehaviour
     {
         //weaponinfo= GetComponent<Weapon.cs>();
         //healthval = GetComponent<Health.cs>();
-        weaponinfo= GameObject.FindObjectOfType(typeof(Weapon)) as Weapon;
+        weaponinfo = GameObject.FindObjectOfType(typeof(Weapon)) as Weapon;
         healthval = GameObject.FindObjectOfType(typeof(Health)) as Health;
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
@@ -51,7 +51,7 @@ public class playerControl : MonoBehaviour
         //BoxCollider boxCollider = player.GetComponent<BoxCollider>();
 
         canDash = true;
-
+        dashtype = 4;
         filter = new();
         filter.SetLayerMask(collisionMask);
     }
@@ -59,42 +59,56 @@ public class playerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing==true)
+        if (isDashing == true)
         {
             return;
         }
+        if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashtype == 1)
+        {
+            StartCoroutine(DefaultDash());
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashtype == 2)
+        {
+            StartCoroutine(InvulnerableDash());
+        }
         if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashtype == 3)
+        {
+            StartCoroutine(ReloadDash());
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashtype == 4)
         {
             StartCoroutine(TeleportDash());
         }
-        
-            float speedX = Input.GetAxisRaw("Horizontal");
-            float speedY = Input.GetAxisRaw("Vertical");
-            Vector3 playerinput = new Vector3(speedX, speedY, 0);
-            currspeed += playerinput.normalized * Time.deltaTime * (acceleration + friction);
-            if (currspeed.magnitude < friction * Time.deltaTime)
-            {
-                currspeed = new(0, 0, 0);
-            }
-            else
-            {
-                currspeed -= currspeed.normalized * friction * Time.deltaTime;
-            }
-            if (currspeed.magnitude > movSpeed)
-            {
-                currspeed = currspeed.normalized * movSpeed;
-            }
-            transform.position += (currspeed * Time.deltaTime);
+
+        float speedX = Input.GetAxisRaw("Horizontal");
+        float speedY = Input.GetAxisRaw("Vertical");
+        Vector3 playerinput = new Vector3(speedX, speedY, 0);
+        currspeed += playerinput.normalized * Time.deltaTime * (acceleration + friction);
+        if (currspeed.magnitude < friction * Time.deltaTime)
+        {
+            currspeed = new(0, 0, 0);
+        }
+        else
+        {
+            currspeed -= currspeed.normalized * friction * Time.deltaTime;
+        }
+        if (currspeed.magnitude > movSpeed)
+        {
+            currspeed = currspeed.normalized * movSpeed;
+        }
+        transform.position += (currspeed * Time.deltaTime);
 
 
         var results = new List<Collider2D>();
-        Physics2D.OverlapBox((Vector2) col.bounds.center, (Vector2) col.bounds.extents * 2.0f, 0.0f, filter, results);
+        Physics2D.OverlapBox((Vector2)col.bounds.center, (Vector2)col.bounds.extents * 2.0f, 0.0f, filter, results);
 
-        foreach (var other in results) {
+        foreach (var other in results)
+        {
             var obj = other.gameObject;
-        
+
             var wall = obj.GetComponent<Wall>();
-            if (wall == null) {
+            if (wall == null)
+            {
                 return;
             }
 
@@ -108,7 +122,8 @@ public class playerControl : MonoBehaviour
             //  fix it i am begging you)
             var extraSpace = 0.0201f;
 
-            switch (wall.pushDirection) {
+            switch (wall.pushDirection)
+            {
                 case Wall.PushDirection.North:
                     transform.position = new(
                         transform.position.x,
@@ -184,29 +199,29 @@ public class playerControl : MonoBehaviour
         canDash = true;
     }
 
-private IEnumerator DefaultDash()
-{
-    speedX = Input.GetAxisRaw("Horizontal");
-    speedY = Input.GetAxisRaw("Vertical");
-    Vector3 playerinput = new Vector3(speedX, speedY, 0);
-    canDash = false;
-    isDashing = true;
-    //boxCollider.enabled = false;
-    rb.velocity = playerinput*dashingPower2;
-    //rb.velocity = rb.velocity * ;
-    //transform.position += playerinput.normalized * ( * dashingPower2);
-    //tr.emitting = true;
-    //transform.position += playerinput.normalized * (dashingPower2);
-    yield return new WaitForSeconds(dashingTime2);
-    isDashing = false;
-    //boxCollider.enabled = true;
-    //tr.emitting = false;
-    yield return new WaitForSeconds(dashingCooldown);
-    canDash = true;
+    private IEnumerator DefaultDash()
+    {
+        speedX = Input.GetAxisRaw("Horizontal");
+        speedY = Input.GetAxisRaw("Vertical");
+        Vector2 playerinput2 = new Vector2(speedX * dashingPower, speedY * dashingPower);
+        canDash = false;
+        isDashing = true;
+        //boxCollider.enabled = false;
+        rb.velocity = playerinput2;
+        //rb.velocity = rb.velocity * ;
+        //transform.position += playerinput.normalized * ( * dashingPower2);
+        //tr.emitting = true;
+        //transform.position += playerinput.normalized * (dashingPower2);
+        yield return new WaitForSeconds(dashingTime2);
+        isDashing = false;
+        //boxCollider.enabled = true;
+        //tr.emitting = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
- private IEnumerator InvulnerableDash()
- {
+    private IEnumerator InvulnerableDash()
+    {
         float speedX = Input.GetAxisRaw("Horizontal");
         float speedY = Input.GetAxisRaw("Vertical");
         Vector3 playerinput = new Vector3(speedX, speedY, 0);
@@ -231,18 +246,17 @@ private IEnumerator DefaultDash()
         canDash = true;
     }
 
-private IEnumerator ReloadDash()
-{
-        float speedX = Input.GetAxisRaw("Horizontal");
-        float speedY = Input.GetAxisRaw("Vertical");
-        Vector3 playerinput = new Vector3(speedX, speedY, 0);
+    private IEnumerator ReloadDash()
+    {
+        //Vector3 playerinput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
         canDash = false;
         isDashing = true;
         //boxCollider.enabled = false;
         //rb.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * (dashingPower), Input.GetAxisRaw("Vertical") * (dashingPower), 0);
         //transform.position += playerinput.normalized * ( * dashingPower2);
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * dashingPower2, Input.GetAxisRaw("Vertical") * dashingPower2);
         //tr.emitting = true;
-        transform.position += playerinput.normalized * (dashingPower2);
+        //transform.position += playerinput.normalized * (dashingPower2);
         weaponinfo.instantReload();
         //currentAmmo = getMaxAmmo();
         yield return new WaitForSeconds(dashingTime2);
