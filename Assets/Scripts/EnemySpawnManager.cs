@@ -15,6 +15,7 @@ public class EnemySpawnManager : MonoBehaviour {
 	public float timeBetweenWaves;
 	public int wavesBetweenUpgrades;
 	public float timeForUpgrade;
+	public int firstUpgradeWave;
 
 	[Header("Events")]
 	public UnityEvent TimeForUpgrade;
@@ -25,7 +26,9 @@ public class EnemySpawnManager : MonoBehaviour {
 	private int wave;
 	private float nextSpawnTimer;
 	private float nextWaveTimer;
-
+	private WeaponDrop weaponDrop;
+	private UpgradesDrop upgradesDrop;
+	
 	void Start() {
 		TimeForUpgrade = new();
 		pendingSpawns = new();
@@ -34,13 +37,17 @@ public class EnemySpawnManager : MonoBehaviour {
 		wave = 1;
 		nextSpawnTimer = 0.0f;
 		nextWaveTimer = timeBetweenWaves;
-
+		weaponDrop = GetComponent<WeaponDrop>();
+		upgradesDrop = GetComponent<UpgradesDrop>();
 		ChooseEnemies();
 	}
 
 	void Update() {
 		aliveEnemies.RemoveAll(o => !o);
-
+		nextWaveTimer -= Time.deltaTime;
+		if (nextWaveTimer > 0.0f) {
+			return;
+		}
 		if (pendingSpawns.Count > 0) {
 			nextSpawnTimer -= Time.deltaTime;
 			if (nextSpawnTimer > 0.0f) {
@@ -61,25 +68,32 @@ public class EnemySpawnManager : MonoBehaviour {
 			return;
 		}
 
-		nextWaveTimer -= Time.deltaTime;
-		if (nextWaveTimer > 0.0f) {
-			return;
-		}
+		
 
 		ChooseEnemies();
 
 		wave += 1;
-
-		if (wave % wavesBetweenUpgrades == 0) {
+		if(wave < firstUpgradeWave)
+		{
+			return;
+		}
+		if (wave == firstUpgradeWave) {
 			// TODO: i don't remember the consensus on this,
 			// but we may want to pause wave spawning here
 			// until the player picks an upgrade?
 			//
 			// either way we can't really do that until the
 			// upgrade choosing system is done..
+			
+			weaponDrop.weaponDrop();
 			TimeForUpgrade.Invoke();
-			nextWaveTimer = timeForUpgrade;
-		} else {
+			nextWaveTimer = float.PositiveInfinity;
+			return;
+		} 
+		if(wave % wavesBetweenUpgrades  == 0)
+		{
+			upgradesDrop.upgradeDroper();
+			nextWaveTimer = float.PositiveInfinity;
 		}
 	}
 
@@ -190,5 +204,10 @@ public class EnemySpawnManager : MonoBehaviour {
 
 	public void AddEnemy(GameObject enemy) {
 		aliveEnemies.Add(enemy);
+	}
+
+	public void WaveStarter()
+	{
+		nextWaveTimer = 0;
 	}
 }

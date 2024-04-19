@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ void upgrade(UpgradeData upgradeData)
     Weapon gun = FindAnyObjectByType<Weapon>();
     WeaponData newData = new WeaponData();
     WeaponData data = gun.getData();
-    newData.name = upgradeData.name;
+    newData.name = data.name;
     newData.damage =  data.damage;
     newData.maxAmmo = data.maxAmmo;
     newData.maxDistance = data.maxDistance;
@@ -34,7 +35,8 @@ Collider2D[] results;
 public Transform circle;
 [SerializeField] private KeyCode swapKey;
 [SerializeField] private UpgradeData upgradeData;
-
+public WeaponDrop weaponDrop;
+public UpgradesDrop upgradesDrop;
 void Start()
 {
     results = new Collider2D[20];
@@ -55,7 +57,15 @@ void Update()
                 {
                     
                     upgrade(upgradeData);
-                    Destroy(gameObject);
+                    if(upgradesDrop != null)
+                    {
+                        upgradesDrop.delete();
+                    }
+                    else
+                    {
+                        weaponDrop.delete();
+                    }
+                    
                 }
             }
         }

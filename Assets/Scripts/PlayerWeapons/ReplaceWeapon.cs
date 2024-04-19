@@ -14,6 +14,7 @@ Collider2D[] results;
 public Transform circle;
 [SerializeField] private KeyCode swapKey;
 [SerializeField] private WeaponSwap swapWeapon;
+public WeaponDrop weaponDrop;
 public bool popup;
 private bool playerHit;
 
@@ -40,7 +41,7 @@ void Update()
                     Weapon old = FindObjectOfType<Weapon>();
                     old.setData(swapWeapon.data);
                     old.setCurrAmmo();
-                        Destroy(gameObject);
+                    weaponDrop.delete();
                 }
             }
         }

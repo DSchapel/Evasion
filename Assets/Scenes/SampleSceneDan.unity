@@ -34634,6 +34634,8 @@ GameObject:
   - component: {fileID: 1991731802}
   - component: {fileID: 1991731803}
   - component: {fileID: 1991731804}
+  - component: {fileID: 1991731806}
+  - component: {fileID: 1991731805}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -34912,6 +34914,7 @@ MonoBehaviour:
   timeBetweenWaves: 1
   wavesBetweenUpgrades: 5
   timeForUpgrade: 5
+  firstUpgradeWave: 0
   TimeForUpgrade:
     m_PersistentCalls:
       m_Calls: []
@@ -35032,6 +35035,42 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1991731805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991731790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041f898b39d0e084697f4f0470612858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rifle: {fileID: 622849595328115113, guid: 061fdb6f037b07749b9b86a230ee6f39, type: 3}
+  shotgun: {fileID: 3413433950123450894, guid: 1e71278240c8817498d663457de3fda9, type: 3}
+  revolverUpgrade: {fileID: 1461926167449336602, guid: 9387047a16faa634b80db22a1a5a3835, type: 3}
+  esm: {fileID: 0}
+--- !u!114 &1991731806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991731790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d673602e954faa44688b3bc31689e1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponUpgrades:
+  - {fileID: 715905918364731383, guid: 67de46a2536790c4aafec0f7059b381f, type: 3}
+  - {fileID: 4723222072979506609, guid: e0592aa2ab9feaf40b22749cea9ed95e, type: 3}
+  - {fileID: 6691765498969463895, guid: 2ff248ca85f7f7f41bf8c73d655b71cc, type: 3}
+  abilities:
+  - {fileID: 7679742045474083798, guid: 73c342fefea76c84faa4c9ec3f33ab9b, type: 3}
+  - {fileID: 1632053269037729912, guid: b641aad79381d0542bc2d26939d7eb94, type: 3}
+  - {fileID: 6346601972930673996, guid: 8e68bb2a0b7b6a0459a78bbc9c255c56, type: 3}
 --- !u!1 &2080100362
 GameObject:
   m_ObjectHideFlags: 0

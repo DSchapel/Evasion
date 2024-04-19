@@ -13,8 +13,8 @@ public class Swappable : MonoBehaviour
     private bool playerHit;
 
     [SerializeField] private KeyCode swapKey;
-    [SerializeField] ASwapData data;
-
+    [SerializeField] public ASwapData data;
+    public UpgradesDrop upgradesDrop;
     void Start()
     {
         results = new Collider2D[20];
@@ -38,7 +38,7 @@ public class Swappable : MonoBehaviour
                     {
                         AbilityDatabase abilities = hit.GetComponent<AbilityDatabase>();
                         abilities.AbilitySwitch(data.abilityNum);
-                        Destroy(gameObject);
+                        upgradesDrop.delete();
                     }
                 }
             }
