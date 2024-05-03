@@ -9,12 +9,12 @@ public class EctoplasmGrenade : MonoBehaviour
     void Update()
     {
         StartCoroutine(Explode());
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 1.3f);
     }
 
     public IEnumerator Explode()
     {
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(1.25f);
         AbilityDatabase master = FindObjectOfType<AbilityDatabase>();
         master.Explode(location);
     }
