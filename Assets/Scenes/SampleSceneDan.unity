@@ -1212,7 +1212,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3965354, y: -0.1700089}
+  m_Offset: {x: -0.3965354, y: -2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1223,7 +1223,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.199726, y: 1.3400178}
+  m_Size: {x: 19.199726, y: 5}
   m_EdgeRadius: 0
 --- !u!50 &685347930
 Rigidbody2D:
@@ -33523,7 +33523,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3967104, y: 6.2758613}
+  m_Offset: {x: -0.3967104, y: 8.275861}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -33534,7 +33534,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.199804, y: 1.0191603}
+  m_Size: {x: 19.199804, y: 5.81916}
   m_EdgeRadius: 0
 --- !u!50 &1416169405
 Rigidbody2D:
@@ -34133,7 +34133,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 8.493128, y: 0.22639847}
+  m_Offset: {x: 11.493128, y: 0.22639847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -34144,7 +34144,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4199181, y: 13.118006}
+  m_Size: {x: 7.319918, y: 13.118006}
   m_EdgeRadius: 0
 --- !u!50 &1679961435
 Rigidbody2D:
@@ -34894,7 +34894,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -9.287009, y: 0.22618484}
+  m_Offset: {x: -12.287009, y: 0.22618484}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -34905,7 +34905,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4192295, y: 13.118433}
+  m_Size: {x: 7.29, y: 13.118433}
   m_EdgeRadius: 0
 --- !u!50 &2101890417
 Rigidbody2D:
