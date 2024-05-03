@@ -8,6 +8,7 @@ public class WaveTracker : MonoBehaviour
     public TMP_Text WaveText;
 
     private GameObject target;
+    public static int yoyowassup;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class WaveTracker : MonoBehaviour
     void Update()
     {
         var waveNumber = target.GetComponent<EnemySpawnManager>();
+        yoyowassup = waveNumber.Wave;
         WaveText.SetText("Wave " + waveNumber.Wave);
     }
 }
