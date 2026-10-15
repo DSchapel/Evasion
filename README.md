@@ -1,0 +1,1 @@
+A top-down 2D bullet hell shooter game with wave based escelation and upgrade pathways. This is a project built in Unity with a team of developers who were fellow students of Michigan Technological University.
